@@ -1,0 +1,24 @@
+/* CSS Document */
+table.ventas-por-clientes{
+width:500px;
+}
+.contenedor-graficos{
+width:500px;
+height:300px;
+float:left;
+margin-top:-41px;
+position:relative;
+}
+.graficoos{
+width:800px;
+position:absolute;
+top:3px;
+left:-87px;
+}
+.table-graf{
+float:left;
+}
+.contenedor-tabla{
+width:100%;
+float:left;
+}
