@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+<title>B-Social - La Red Social para Empresas</title>
+<link rel="stylesheet" href="css/reset.css" type="text/css" />
+<link rel="stylesheet" href="css/estilo.css" type="text/css" />
+<script type="text/javascript" src="js/jquery.tools.min.js"></script> 
+<script type="text/javascript" src="js/funciones.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500,300,400italic,300italic,100italic,100,500italic,700italic,900,900italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<div id="contenedor-general" class="clearfix">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="" title="B-Social - Home">B-Social - La Red Social para Empresas</a></h1>
+			</div>
+			<div id="bigbanner">
+			</div>
+			<div id="menu-user">
+				<ul id="iconos-user">
+					<li><a href="#" title="Información" id="informacion">Información</a></li>
+					<li><a href="#" title="mensajes" id="mensajes">mensajes</a></li>
+					<li><a href="#" title="usuario" id="usuario">usuario</a></li>
+				</ul>
+				<ul id="btn-username">
+					<li id="contenedor-drop">
+						<a>Gonzalo</a>
+						<ul id="dropdown-username">
+							<li id="contenedor-flecha"><span class="flecha-up"></span> <a href="#" title="Configuración">Configuración</a></li>
+							<li><a href="#" title="Cerrar sesión">Cerrar sesión</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="contenedor-central">
+			<div id="col-izquierda" class="col-contenido">
+				<form id="form-buscador">
+					<p><input type="text" id="buscar-sidebar" placeholder="Buscar grupo o persona"/><a id="btn-lupita" title="Buscar">Buscar</a>
+					</p>
+				</form>	
+				<ul class="menu-troncal menu-bsocial">
+					<li><a href="#" title="Novedades" id="icn-novedades">Novedades</a></li>
+					<li><a href="#" title="Avisos" id="icn-avisos">Avisos <span class="globo">1</span></a></li>
+					<li><a href="#" title="Encuestas" id="icn-encuestas">Encuestas</a></li>
+					<li><a href="#" title="Mercadito" id="icn-mercadito">Mercadito <span class="globo">99</span></a></li>
+					<li><a href="#" title="Cumpleaños" id="icn-cumpleanos">Cumpleaños</a></li>
+					<li><a href="#" title="Elige al mejor" id="icn-elige">Elige al mejor</a></li>
+					<li><a href="#" title="Beneficios" id="icn-beneficios">Beneficios</a></li>
+					<li><a href="#" title="Liquidaciones" id="icn-liquidaciones">Liquidaciones</a></li>
+				</ul>
+				<div id="grupos-sidebar">
+					<h4>Grupos</h4>
+					<ul class="menu-troncal menu-grupos">
+						<li><a href="#" title="Sucursal Norte">Sucursal Norte <span class="globo">2</span></a></li>
+						<li><a href="#" title="Amigo Secreto">Amigo Secreto <span class="globo">10</span></a></li>
+					</ul>
+					<p><a href="" title="Ver más grupos">+ Ver más grupos</a></p>
+				</div>
+				<div id="logo-h2">
+					<h2><a href="http:/www.bsocial.cl" title="B-Social - La Red Social para Empresas" target="_blank">B-Social - La Red Social para Empresas</a></h2>
+				</div>
+				<ul class="menu-troncal menu-adicional">
+					<li><a href="#" title="Misión y Visión">Misión y Visión</a></li>
+					<li><a href="#" title="Sucursales">Sucursales</a></li>
+				</ul>
+			</div>
+			<div id="col-centro" class="col-contenido">
+				<div id="contenedor-estado">
+					<form id="estado">
+						<textarea placeholder="¿Qué quieres publicar?"></textarea>
+						<div id="contenedor-fotos-adjuntas">
+							<ul>
+								<li> <a class="btn-borrar-img" title="Borrar imagen">Borrar imagen</a>
+									<img src="css/img/domi.jpg" />
+								</li>
+							</ul>	
+						</div>
+						<div id="btns-estado">
+							<p id="contenedor-subir-foto">
+								<a title="Adjuntar imagen"><input type="file" id="btn-subir-foto"/></a>
+							</p>
+							<p id="contenedor-subir-video">
+								<a title="Adjuntar video" rel="#modal-adjuntar-video">Adjuntar video</a>
+							</p>
+							<ul id="btn-visiblepor">
+								<li id="contenedor-drop-visible">
+									<a id="visiblepor-selected">Visible por</a>
+									<ul id="dropdown-visiblepor">
+										<li id="contenedor-flecha-gris"><span class="flecha-up"></span> <a href="#" title="Todos los grupos">Todos</a></li>
+										<li><a href="#" title="Ventas">Ventas</a></li>
+										<li><a href="#" title="Amiguis">Amiguis</a></li>
+									</ul>
+								</li>
+							</ul>
+							<p class="btn"><a title="Publicar">Publicar</a>
+							</p>
+						</div>
+					</form>
+					<style>
+					/* Este valor debe cambiar conforme aumenta el % de carga de la foto */
+					#barra-carga-foto{
+						width:180px;
+					}
+					</style>
+					<div id="barra-carga-foto">
+					</div>
+				</div>
+				<div class="contendor-publicacion">
+					<div class="foto-perfil">
+						<p><img src="css/img/img-perfil.jpg" alt="Imagen perfil" /></p>
+					</div>
+					<div class="datos-publicacion">
+					<h3>Warren Buffett</h3>
+					<p class="fecha-publicacion">22/01/2014 a las 18:02 Hrs.</p>
+					</div>
+					<div class="publicacion">
+						<div class="publicacion-video">
+							<iframe src="//player.vimeo.com/video/58898148?title=0&amp;byline=0&amp;portrait=0" width="380" height="214" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						</div>
+						<div class="publicacion-texto">
+							<p>¡Feliz Cumpleaños Camila!</p>
+						</div>
+						<div class="contenedor-escribir-comentario">
+							<div class="escribir-comentario">
+								<form class="form-comentar-publicacion">
+									<textarea placeholder="Escribe un comentario..."></textarea>
+								</form>
+							</div>
+							<ul>
+								<li class="btn comentar"><a title="Comentar">Comentar</a></li>
+								<li class="btn megusta">
+									<!-- La clase del span debe cambiar segun los numeros que tenga: "un-numero", "dos-numeros" o "tres-numeros" -->
+									<span class="globo-megusta dos-numeros" title="1">99</span>
+									<a title="¡Me gusta!">¡Me gusta!</a>
+								</li>
+							</ul>	
+						</div>	
+					</div>
+					<!-- La class "bg-linea" imprime la línea gris debajo de cada div. Si se trata del último div de comentario, no debe llevar esta class -->
+					<div class="publicacion-comentario bg-linea">
+						<div class="foto-perfil">
+							<p><img src="css/img/img-perfil.jpg" alt="Imagen perfil" /></p>
+						</div>
+						<div class="datos-publicacion">
+							<h3>Orville Wright</h3>
+							<p class="fecha-publicacion">22/01/2014 a las 18:02 Hrs.</p>
+						</div>
+						<div class="publicacion-texto comentario">
+							<p>Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.</p>
+						</div>
+					</div>
+					<div class="publicacion-comentario">
+						<div class="foto-perfil">
+							<p><img src="css/img/img-perfil.jpg" alt="Imagen perfil" /></p>
+						</div>
+						<div class="datos-publicacion">
+							<h3>Wilbur Wright</h3>
+							<p class="fecha-publicacion">22/01/2014 a las 18:02 Hrs.</p>
+						</div>
+						<div class="publicacion-texto comentario">
+							<p>Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí".</p>
+						</div>
+					</div>
+				</div>
+				<div class="contendor-publicacion">
+					<div class="foto-perfil">
+						<p><img src="css/img/img-perfil.jpg" alt="Imagen perfil" /></p>
+					</div>
+					<div class="datos-publicacion">
+					<h3>James Hetfield</h3>
+					<p class="fecha-publicacion">22/01/2014 a las 18:02 Hrs.</p>
+					</div>
+					<div class="publicacion">
+						<div class="publicacion-texto">
+							<p>Victoria (del latín victoria) es un término, originalmente aplicado a la guerra, dado al éxito alcanzado en el combate personal, después de las operaciones militares en general o, por extensión, en cualquier competencia. El éxito en una campaña militar se considera una victoria estratégica, mientras que el éxito de una intervención militar es una victoria táctica.</p>
+						</div>
+						<div class="contenedor-escribir-comentario">
+							<div class="escribir-comentario">
+								<form class="form-comentar-publicacion">
+									<textarea placeholder="Escribe un comentario..."></textarea>
+								</form>
+							</div>
+							<ul>
+								<li class="btn comentar"><a title="Comentar">Comentar</a></li>
+								<li class="btn megusta">
+									<!-- La clase del span debe cambiar segun los numeros que tenga: "un-numero", "dos-numeros" o "tres-numeros" -->
+									<span class="globo-megusta un-numero" title="1">8</span>
+									<a title="¡Me gusta!">¡Me gusta!</a>
+								</li>
+							</ul>	
+						</div>	
+					</div>
+				</div>
+			</div>
+			<div id="col-derecha" class="col-contenido">
+				<div class="aviso-destacado icn-azul">
+					<h5 class="icn-aviso-azul">Aviso Destacado</h5>	
+					<p class="contenedor-imagen">
+						<img src="css/img/aviso-destacado.jpg" alt="Imagen de aviso destacado" />
+					</p>
+					<div class="parrafo">
+						<h6><a href="" title="Ver aviso">¡Fiesta de fin de año!</a></h6>
+						<p><a href="" title="Ver aviso">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</a>
+						</p>	
+					</div>
+				</div>
+				<div class="cumpleano-destacado">
+					<h5 class="icn-cumpleanos-azul">Cumpleaños</h5>
+					<p>Saluda en su día de cumpleaños <br>a <a href="" title="Saluda a Felix Angel Saucedo Calderón">Felix Angel Saucedo Calderón</span></a>
+				</div>
+				<div class="cumpleano-destacado">
+					<h5 class="icn-cumpleanos-azul">Cumpleaños</h5>
+					<p>Saluda en su día de cumpleaños <br>a <a href="" title="Saluda a Steave Jobs Mardones">Steven Paul Jobs</a>
+					</p>	
+				</div>
+				<div class="encuesta-destacada">
+					<h5 class="icn-encuestas-azul"></h5>
+					<p>¿Que beneficios te gustaría para tu cumpleaños?</p>
+					<form class="form-encuesta">
+						<p>
+							<input type="radio" id="opcion1" name="opcion" />
+							<label for="opcion1"><span></span>Bono</label>
+						</p>
+						<p>
+							<input type="radio" id="opcion2" name="opcion" />
+							<label for="opcion2"><span></span>Masaje</label>
+						</p>
+						<p>
+							<input type="radio" id="opcion3" name="opcion" />
+							<label for="opcion3"><span></span>Chelita</label>
+						</p>
+						<p>
+							<input type="radio" id="opcion4" name="opcion" />
+							<label for="opcion4"><span></span>Medio día libre</label>
+						</p>
+					</form>
+					<p class="btn">
+						<a href="#" title="Votar">Votar</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modales -->
+	<div id="modal-adjuntar-video" class="simple_overlay">
+		<p>Pega aquí la dirección de tu video de Youtube o Vimeo:</p>
+		<form id="form-adjuntar-video">
+			<p>
+				<input type="text" id="url-video" placeholder="Dirección para compartir..." />
+				<a class="btn" id="btn-video" title="Adjuntar">Adjuntar</a>
+			</p>
+		</form>
+	</div>
+</body>
+</html>
