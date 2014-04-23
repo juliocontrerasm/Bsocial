@@ -578,7 +578,7 @@ font-size: 11px;
 	padding-top:14px;
 }
 .publicacion-comentario.bg-linea{
-	background:url(img/bg-linea-comentarios.jpg) #e2e1e1 right bottom no-repeat;
+	background:url(img/bg-linea-comentarios.jpg) #e2e1e1 right top no-repeat;
 }
 .publicacion-comentario .datos-publicacion{
 	margin-bottom:0;
