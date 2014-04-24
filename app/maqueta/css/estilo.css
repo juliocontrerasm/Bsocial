@@ -829,8 +829,41 @@ margin-bottom: 20px;
 #dropdown-visiblepor.ocultar{
 display: none;
 }
-
-
+#modal-adjuntar-video p{
+	color:#9f9f9f;
+	font-size: 15px;
+	width: 490px;
+	text-align: left;
+	float: left;
+	font-weight: 300;
+	margin:30px 0 0 30px;
+}
+#form-adjuntar-video p{
+	margin-top:10px;
+}
+#form-adjuntar-video p input{
+border:2px solid #2e3337;
+border-right:none;
+background-color: #e1e2e2;
+float: left;
+height: 44px;
+width: 350px;
+color:#9f9f9f;
+font-size: 15px;
+font-weight: 300;
+padding:0 10px;
+}
+#form-adjuntar-video p a{
+	background-color: #2E3337;
+	color:#ffffff;
+	font-size: 15px;
+	font-weight: 300;
+	padding: 17px 22px 16px 22px;
+	height: auto;
+}
+#form-adjuntar-video p a:hover{
+	background-color: #23272a;
+}
 
 
 
@@ -1109,10 +1142,9 @@ display: none;
     z-index:10000;
  
     /* styling */
-    background-color:#333;
- 
-    width:675px;
-    min-height:200px;
+    background-color:#ffffff;
+    width:540px;
+    height: 135px;
     border:1px solid #666;
  
     /* CSS3 styling for latest browsers */

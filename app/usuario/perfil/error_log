@@ -1,0 +1,6 @@
+[27-Feb-2014 12:50:44 America/Denver] PHP Warning:  require_once(../../layout/prueba.php): failed to open stream: No such file or directory in /home8/sumaboxc/public_html/prueba_bsocial/usuario/perfil/index.php on line 5
+[27-Feb-2014 12:50:44 America/Denver] PHP Fatal error:  require_once(): Failed opening required '../../layout/prueba.php' (include_path='.:/usr/php/54/usr/lib64:/usr/php/54/usr/share/pear') in /home8/sumaboxc/public_html/prueba_bsocial/usuario/perfil/index.php on line 5
+[27-Feb-2014 12:51:07 America/Denver] PHP Warning:  require_once(../../layout/prueba.php): failed to open stream: No such file or directory in /home8/sumaboxc/public_html/prueba_bsocial/usuario/perfil/index.php on line 5
+[27-Feb-2014 12:51:07 America/Denver] PHP Fatal error:  require_once(): Failed opening required '../../layout/prueba.php' (include_path='.:/usr/php/54/usr/lib64:/usr/php/54/usr/share/pear') in /home8/sumaboxc/public_html/prueba_bsocial/usuario/perfil/index.php on line 5
+[13-Mar-2014 14:30:34 America/Denver] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home8/sumaboxc/public_html/prueba_bsocial/core/config.php on line 46
+[13-Mar-2014 14:30:34 America/Denver] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home8/sumaboxc/public_html/prueba_bsocial/core/config.php on line 46

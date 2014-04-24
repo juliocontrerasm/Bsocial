@@ -16,7 +16,9 @@
 
     
     $empresa->displayAs("nombre", "Nombre");
-
+    
+    
+     
     $empresa->setLimit(30);
 	$empresa->displayAddFormTop();
 	$empresa->showTable();

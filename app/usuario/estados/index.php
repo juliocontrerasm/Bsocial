@@ -1,185 +1,161 @@
-<?php
-	require_once('../../core/config.php');
-	require_once('../../layout/prueba.php');
-	if(!$_SESSION['empresa'] && !$_SESSION['nombre']){
-		header('Location: ../login/?error=2');
-	}
+<?php require_once('../../layout/header.php'); 
+	//session_save_path(dirname($_SERVER['DOCUMENT_ROOT']).'/public_html/tmp');
+	//require_once('../../core/config.php');
 	$publicacion = new ajaxCRUD("Total", "publicaciones", '', "./");
 	$comentario = new ajaxCRUD("Total", "comentarios", '', "./");
 	$grupo = new ajaxCRUD("Total", "grupos", '', "./");
-	$categoria = new ajaxCRUD("Total", "categorias", '', "./");
 	$like = new ajaxCRUD("Total", "likes", '', "./");
+	$usuario = new ajaxCRUD("Total", "usuarios", '', "./");
 	if($_POST['nuevo_comentario']!=null){
 		$texto = addslashes(strip_tags($_POST['nuevo_comentario']));
 		$comentario->getQuery("INSERT INTO  `comentarios` (`id`,`id_publicacion`,`id_usuario`,`texto` ,`created` ,`deleted`)
-		VALUES (NULL , '".$_POST['id_publicacion']."',  '".$_SESSION['id_usuario']."', '".$texto."', '".date("Y-m-d H:i:s")."' ,  '0');");
+		VALUES (NULL , '".$_POST['id_publicacion']."',  '".$_SESSION['id_usuario']."', '".$texto."', CURRENT_TIMESTAMP ,  '0');");
 	}
-	if($_POST['nueva_publicacion']!=null){
-		$texto = addslashes(strip_tags($_POST['nueva_publicacion']));
+	if($_POST['nuevo_publicacion']!=null){
+		$texto = addslashes(strip_tags($_POST['nuevo_publicacion']));
 		$publicacion->getQuery("INSERT INTO  `publicaciones` (`id`,`id_categoria`,`id_usuario` ,`id_grupo` ,`id_tipo` ,`texto` ,`created` ,`deleted`)
-		VALUES (NULL , '".$_POST['categoria']."',  '".$_SESSION['id_usuario']."', '".$_POST['grupo_estado']."',  '".$_POST['tipo_estado']."',  '".$texto."', '".date("Y-m-d H:i:s")."' ,  '0');");
+		VALUES (NULL , '".$_POST['categoria']."',  '".$_SESSION['id_usuario']."',  '".$_POST['grupo_publicacion']."',  '".$_POST['tipo_publicacion']."',  '".$texto."', CURRENT_TIMESTAMP ,  '0');");
 	}
-		echo  $_SESSION['id_usuario']. '<br />';
-		echo  $_SESSION['usuario']. '<br />';
-		echo  $_SESSION['empresa'].'<br />';
-		$publicaciones = $publicacion->getQuery("SELECT pu.* FROM publicaciones as pu, grupos as gr, usuarios as us, grupo_usuario as gr_us, empresas as en WHERE en.id= ".$_SESSION['empresa']." AND us.id_empresa = ".$_SESSION['empresa']." AND gr.id_empresa =".$_SESSION['empresa']." AND gr_us.id_usuario = ".$_SESSION['id_usuario']." AND gr_us.id_usuario = us.id AND pu.id_usuario = us.id OR pu.id_usuario_etiquetado IN (SELECT id FROM usuarios WHERE id_empresa = ".$_SESSION['empresa'].") GROUP BY pu.id ORDER BY pu.created DESC ");	
+		// echo  $_SESSION['id_usuario']. '<br />';
+		// echo  $_SESSION['usuario']. '<br />';
+		// echo  $_SESSION['empresa'].'<br />';
+		$publicaciones = $publicacion->getQuery("SELECT es.* FROM publicaciones as es, grupos as gr, usuarios as us, grupo_usuario as gr_us, empresas as en WHERE us.id_empresa = ".$_SESSION['empresa']." AND us.id =".$_SESSION['id_usuario']." AND gr_us.id_usuario =".$_SESSION['id_usuario']." AND gr_us.id_grupo = gr.id GROUP BY es.id ORDER BY es.created DESC");
 		$grupos = $grupo->getQuery("SELECT gr.id, gr.nombre FROM grupos gr, usuarios us, grupo_usuario gr_us, empresas en WHERE us.id =".$_SESSION['id_usuario']." AND gr_us.id_usuario =".$_SESSION['id_usuario']." AND gr_us.id_grupo = gr.id  GROUP BY gr.id ORDER BY gr.id");
-		$categorias = $categoria->getQuery("SELECT id, nombre FROM categorias WHERE id_empresa =".$_SESSION['empresa']." GROUP BY id ORDER BY id_empresa");		
-	if($_GET['categoria']!=null and $_GET['categoria']!=1 ){
-		$publicaciones = $publicacion->getQuery("SELECT pu.* FROM publicaciones as pu, grupos as gr, usuarios as us, grupo_usuario as gr_us, empresas as en WHERE en.id= ".$_SESSION['empresa']." AND us.id_empresa = ".$_SESSION['empresa']." AND gr.id_empresa =".$_SESSION['empresa']." AND gr_us.id_usuario = ".$_SESSION['id_usuario']." AND gr_us.id_usuario = us.id AND pu.id_usuario = us.id AND pu.id_categoria = ".$_GET['categoria']." OR pu.id_usuario_etiquetado IN ( SELECT us.id FROM usuarios as us, publicaciones as pu WHERE us.id_empresa = ".$_SESSION['empresa']." AND pu.id_categoria = ".$_GET['categoria']."  ) GROUP BY pu.id ORDER BY pu.created DESC");
+	if($_GET['categoria']!=null){
+		$publicaciones = $publicacion->getQuery("SELECT es.* FROM publicaciones as es, grupos as gr, usuarios as us, grupo_usuario as gr_us, empresas as en WHERE us.id_empresa = ".$_SESSION['empresa']." AND us.id =".$_SESSION['id_usuario']." AND gr_us.id_usuario =".$_SESSION['id_usuario']." AND gr_us.id_grupo = gr.id AND es.id_categoria = ".$_GET['categoria']." GROUP BY es.id ORDER BY es.created DESC");
 	}
-	if($_GET['grupo']!=null){
-		$publicaciones = $publicacion->getQuery("SELECT pu.* FROM publicaciones as pu, grupos as gr, usuarios as us, grupo_usuario as gr_us, empresas as en WHERE en.id= ".$_SESSION['empresa']." AND us.id_empresa = ".$_SESSION['empresa']." AND gr.id_empresa =".$_SESSION['empresa']." AND gr_us.id_usuario = ".$_SESSION['id_usuario']." AND gr_us.id_usuario = us.id AND pu.id_usuario = us.id AND pu.id_grupo = ".$_GET['grupo']."  GROUP BY pu.id ORDER BY pu.created DESC");
-	}
+		// htmlspecialchars()
+		//pr($publicaciones);
+		//pr($grupo_usuarios);
+		//pr($categorias);
+	$i=1;
+	$z=1;
 ?>
-Menu:  <a href="../perfil" title="Editar perfil">Editar datos</a> | <a href="../cronjob/cumpleanos_vista.php" title="Ver cumpleaños">Cumpleaños</a> | <a href="../mensajes/" title= "ve a mensajes">Mensajes</a> | <a href="../login/logout.php" title= "Cerrar sesion">Cerrar sesion </a>
-    	<form action="" method="post">
-			<textarea name="nueva_publicacion"></textarea>	
-			<select name="tipo_estado">
-				<option value="1">Texto</option>
-				<option value="2">Video</option>
-				<option value="3">Audio</option>
-				<option value="4">Foto</option>
-			</select>
-			<select name="grupo_estado">
-				<?php foreach($grupos as $g){?>
-				<option value="<?php echo $g['id']?>"><?php echo $g['nombre']?></option>
-				<?php }?>
-			</select>	
-				<select name="categoria">
-					<?php foreach ($categorias as $c){?>
-				<option value="<?php echo $c['id']?>"><?php echo $c['nombre']?></option>
-				<?php }?>
-			</select>	
-			<button class="btn primary" type="submit">Publicar</button>
-	</form>
-	<?php foreach ($categorias as $c){
-				echo '<a href="?categoria= '.$c['id'].'"> '.$c['nombre'].'</a> <br/>';
- 			}
- 			foreach($grupos as $g){
- 				echo '<a href="?grupo= '.$g['id'].'"> '.$g['nombre'].'</a> <br/>';
-				 }
-		$i=1;
-		$z=1;
-		foreach($publicaciones as $publicacion){
-			$comentarios = $comentario->getQuery("SELECT id,id_usuario, texto, created FROM comentarios WHERE id_publicacion =".$publicacion['id']." ORDER BY created DESC");
-			$like_estado = $like->getQuery("SELECT count(id) as count FROM likes WHERE id_publicacion = ".$publicacion['id']." AND id_comentario='0' AND deleted = 0");
-			$like_estado_usuario = $like->getQuery("SELECT count(id) as count FROM likes WHERE id_publicacion = ".$publicacion['id']." AND id_usuario=".$_SESSION['id_usuario']." AND id_comentario='0' AND deleted = 0");
-			echo '<div id ="comentarios-n'.$i.'"> Usuario: '.$publicacion['id_usuario'];
-			echo '<br />';
-			echo $publicacion['texto'];
-			echo '<br />';
-			if($like_estado_usuario[0]['count']==0){
-				echo '<br /> <span class ="like"> Likes: <span id="like-count-'.$i.'">'.$like_estado[0]['count'].'</span> </span> <a id="like-publicacion-'.$i.'" title="Like" >Me gusta</a>';
-			}else{
-				echo '<br /> <span class ="like"> Likes: <span id="like-count-'.$i.'">'.$like_estado[0]['count'].'</span> </span> <a id="like-publicacion-'.$i.'" title="Like" >Ya no me gusta</a>';
-			}
-			echo '<br/>hace '.fecha_pro($publicacion['created']);
-			if($comentarios != null){
-				echo '<br/>';				
-				echo '<br /> comentarios de la publicacion';
-				foreach($comentarios as $con){
-					$like_comentario = $like->getQuery("SELECT count(id) as count FROM likes WHERE id_publicacion = ".$publicacion['id']." AND id_comentario = ".$con['id']." AND deleted = 0");
-					$like_comentario_usuario = $like->getQuery("SELECT count(id) as count FROM likes WHERE id_publicacion = ".$publicacion['id']." AND id_usuario=".$_SESSION['id_usuario']." AND id_comentario = ".$con['id']." AND deleted = 0");
-					echo '<br /> Usuario: '.$con['id_usuario'];
-					echo '<br />';
-					echo $con['texto'];
-					echo '<br />';
-					if($like_comentario_usuario[0]['count']==0){
-						echo '<br /> <span class ="like"> Likes: <span id="like-count-comentario-'.$z.'">'.$like_comentario[0]['count'].'</span> </span> <a id="like-comentario-'.$z.'" title="Like" >Me gusta</a>';
-					}else{
-						echo '<br /> <span class ="like"> Likes: <span id="like-count-comentario-'.$z.'">'.$like_comentario[0]['count'].'</span> </span> <a id="like-comentario-'.$z.'" title="Like" >Ya no me gusta</a>';
+		<div id="col-centro" class="col-contenido">
+				<div id="contenedor-estado">
+					<form id="estado">
+						<textarea name="nueva_publicacion" placeholder="¿Qué quieres publicar?"></textarea>
+						<?php if ($cargando == 1){?>
+								<div id="contenedor-fotos-adjuntas">
+									<ul>
+										<li> <a class="btn-borrar-img" title="Borrar imagen">Borrar imagen</a>
+											<img src="css/img/domi.jpg" />
+										</li>
+									</ul>	
+								</div>
+						<?php } ?>
+						<div id="btns-estado">
+							<p id="contenedor-subir-foto">
+								<a title="Adjuntar imagen"><input type="file" id="btn-subir-foto"/></a>
+							</p>
+							<p id="contenedor-subir-video">
+								<a title="Adjuntar video" rel="#modal-adjuntar-video">Adjuntar video</a>
+							</p>
+							<ul id="btn-visiblepor">
+								<li id="contenedor-drop-visible">
+									<a id="visiblepor-selected">Visible por</a>
+									<ul id="dropdown-visiblepor">
+										<li id="contenedor-flecha-gris"><span class="flecha-up"></span><a href="#" title="Todos los grupos">Todos</a></li>
+										<?php foreach($grupos as $g){?>
+												<li><a href="#" title="<?php echo $g['nombre']?>"><?php echo $g['nombre']?></a></li>
+										<?php }?>
+									</ul>
+								</li>
+							</ul>
+							<p class="btn"><a title="Publicar">Publicar</a>
+							</p>
+						</div>
+					</form>
+					<style>
+					/* Este valor debe cambiar conforme aumenta el % de carga de la foto */
+					#barra-carga-foto{
+						width:180px;
 					}
-					echo '<br/>hace '.fecha_pro($con['created']);
-			?>
-			<script>
-			jQuery(document).ready(function ($){
-				$("#like-comentario-<?php echo $z;?>").click(function() {
-					var like= $("#like-count-comentario-<?php echo $z;?>").html();
-					var like_text=$("#like-comentario-<?php echo $z;?>").html();
-					if(like_text =='Me gusta'){
-					like = parseInt(like)+1;
-					like_text ='Ya no me gusta';
-					$("#like-comentario-<?php echo $z;?>").html(like_text);
-					$("#like-count-comentario-<?php echo $z;?>").html(like);
-				}else{
-					like = parseInt(like)-1;
-					like_text ='Me gusta';
-					$("#like-comentario-<?php echo $z;?>").html(like_text);
-					$("#like-count-comentario-<?php echo $z;?>").html(like);
-				}
-					$.ajax({
-                        url:'likes.php', 
-                        data:{ 
-                        id_publicacion: <?php echo $publicacion['id'];?>,
-                        id_usuario: <?php echo $_SESSION['id_usuario'];?>,
-                        id_comentario : <?php echo $con['id'];?>
-                    	},
-                        type: 'POST',
-                        async: true,
-                        cache: false,
-                        success: function(responsetext,textStatus,xhr,data,callback,result) {},
-                        error: function (xhr, ajaxOptions, thrownError,data) {} 
-                      });
-				});
-			});
-			</script>
-			<?php	$z++;}
-			}
-			?>
-			<script>
-			jQuery(document).ready(function ($){
-				$("#like-publicacion-<?php echo $i;?>").click(function() {
-					var like= $("#like-count-<?php echo $i;?>").html();
-					var like_text=$("#like-publicacion-<?php echo $i;?>").html();
-					if(like_text =='Me gusta'){
-					like = parseInt(like)+1;
-					like_text ='Ya no me gusta';
-					$("#like-publicacion-<?php echo $i;?>").html(like_text);
-					$("#like-count-<?php echo $i;?>").html(like);
-				}else{
-					like = parseInt(like)-1;
-					like_text ='Me gusta';
-					$("#like-publicacion-<?php echo $i;?>").html(like_text);
-					$("#like-count-<?php echo $i;?>").html(like);
-				}
-					$.ajax({
-                        url:'likes.php', 
-                        data:{ 
-                        id_publicacion: <?php echo $publicacion['id'];?>,
-                        id_usuario: <?php echo $_SESSION['id_usuario'];?>,
-                    	},
-                        type: 'POST',
-                        async: true,
-                        cache: false,
-                        success: function(responsetext,textStatus,xhr,data,callback,result) {},
-                        error: function (xhr, ajaxOptions, thrownError,data) {}
-                      });
-				});
-			});
-			</script>
-			<form action="" method="post">
-			<input type="hidden" value="<?php echo $publicacion['id'];?>" name="id_publicacion" id="id_publicacion" >
-			<textarea name="nuevo_comentario"></textarea>
-			<button class="btn primary" type="submit">Comenta</button>
-			</form>
-		<?php echo '</div><hr />';
-				$i++;
-				};	
-				if($_GET['categoria']==8){
-					$mes_numero = 0;	
-					setlocale (LC_TIME,"spanish");
-					while($mes_numero != 6){
-						$mes_letras= ucwords(strftime('%B',strtotime('-'.$mes_numero.' month')));
-						echo $mes_letras.'<br/>';
-						$url = '../liquidaciones/'.$_SESSION['empresa'].'/'.date('mY',strtotime('-'.$mes_numero.' month')).'/'.$_SESSION['rut'].'.pdf';
-						if(file_exists($url)){
-							echo '<a href="'.$url.'" target="_blank" title ="Liquidaciones de '.$mes_letras.'">Liquidacio de '.$mes_letras.'</a> ('.tamano_archivo($url).')';
-						}else {
-							echo 'No se encontro la liquidacion de este mes.';
-						}
-						echo '<hr />';
-						$mes_numero++;
-					}
-				}
-	require_once('../../layout/prueba_footer.php'); ?>
+					</style>
+					<?php if ($cargando == 1){?>
+					<div id="barra-carga-foto">
+					</div>
+					<?php } ?>
+				</div>
+				<!-- publicaciones  -->
+				<?php foreach($publicaciones as $publicacion){ 
+						$comentarios = $comentario->getQuery("SELECT id,id_usuario, texto, created FROM comentarios WHERE id_publicacion =".$publicacion['id']." ORDER BY created DESC");
+						$like_estado = $like->getQuery("SELECT count(id) as count FROM likes WHERE id_publicacion = ".$publicacion['id']." AND id_comentario='0' AND deleted = 0");
+						$like_estado_usuario = $like->getQuery("SELECT count(id) as count FROM likes WHERE id_publicacion = ".$publicacion['id']." AND id_usuario=".$_SESSION['id_usuario']." AND id_comentario='0' AND deleted = 0");
+						$nombre_usuario = $usuario->getQuery("SELECT nombre FROM usuarios WHERE id = ".$publicacion['id_usuario']."");
+						// pr($publicacion);
+					?>
+				<div class="contendor-publicacion">
+					<div class="foto-perfil">
+						<p><img src="css/img/<?php echo $publicacion['id_usuario'];?>-perfil.jpg" alt="Imagen perfil" /></p>
+					</div>
+					<div class="datos-publicacion">
+					<h3><?php echo $nombre_usuario[0]['nombre']?></h3>
+					<p class="fecha-publicacion">Hace <?php echo fecha_pro($publicacion['created']);?></p>
+					</div>
+					<div class="publicacion">
+						<?php if($publicacion['video']!=null){?>
+						<div class="publicacion-video">
+							<?php echo $publicacion['video'];?>
+							<!-- <iframe src="//player.vimeo.com/video/58898148?title=0&amp;byline=0&amp;portrait=0" width="380" height="214" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+						</div>
+						<?php } ?>
+						<?php if($publicacion['foto']!=null){?>
+						<div class="publicacion-video">
+							<img src="<?php echo $publicacion['foto'];?>.jpg" alt="Imagen" /></p>
+							<!-- <iframe src="//player.vimeo.com/video/58898148?title=0&amp;byline=0&amp;portrait=0" width="380" height="214" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+						</div>
+						<?php } ?>
+						<div class="publicacion-texto">
+							<p><?php echo $publicacion['texto'];?></p>
+						</div>
+						<div class="contenedor-escribir-comentario">
+							<div class="escribir-comentario">
+								<form class="form-comentar-publicacion">
+									<input type="hidden" value="<?php echo $publicacion['id'];?>" name="id_publicacion" id="id_publicacion" >
+									<textarea name="nuevo_comentario" placeholder="Escribe un comentario..."></textarea>
+								</form>
+							</div>
+							<ul>
+								<li class="btn comentar"><a title="Comentar">Comentar</a></li>
+								<li class="btn megusta">
+									<!-- La clase del span debe cambiar segun los numeros que tenga: "un-numero", "dos-numeros" o "tres-numeros" -->
+									<span class="globo-megusta dos-numeros" title="1">99</span>
+									<a title="¡Me gusta!">¡Me gusta!</a>
+								</li>
+							</ul>	
+						</div>	
+					</div>
+					<!-- La class "bg-linea" imprime la línea gris debajo de cada div. Si se trata del último div de comentario, no debe llevar esta class -->
+					<?php if($comentarios != null){ 
+						$con = 0;
+						foreach($comentarios as $con){
+							// $like_comentario = $like->getQuery("SELECT count(id) as count FROM likes WHERE id_publicacion = ".$publicacion['id']." AND id_comentario = ".$con['id']." AND deleted = 0");
+							// $like_comentario_usuario = $like->getQuery("SELECT count(id) as count FROM likes WHERE id_publicacion = ".$publicacion['id']." AND id_usuario=".$_SESSION['id_usuario']." AND id_comentario = ".$con['id']." AND deleted = 0");
+							$nombre_usuario_comentario = $usuario->getQuery("SELECT nombre FROM usuarios WHERE id = ".$con['id_usuario']."");
+						if($con == 0){
+						?>
+							<div class="publicacion-comentario bg-linea">
+						<?php $con=1; } 
+							  else {?>
+						<div class="publicacion-comentario">
+							<?php }?>
+						<div class="foto-perfil">
+							<p><img src="css/img/<?php echo $con['id_usuario'];?>-perfil.jpg" alt="Imagen perfil" /></p>
+						</div>
+						<div class="datos-publicacion">
+							<h3><?php echo $nombre_usuario_comentario[0]['nombre'];?></h3>
+							<p class="fecha-publicacion">Hace <?php echo fecha_pro($con['created']);?></p>
+						</div>
+						<div class="publicacion-texto comentario">
+							<p><?php echo $con['texto'] ;?></p>
+						</div>
+					</div>
+					<?php 
+							}
+						} ?>
+				</div>
+				<?php } ?>
+				<!-- termino de publicaciones -->
+			</div>
+<?php require_once('../../layout/footer.php'); 

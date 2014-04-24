@@ -2352,6 +2352,7 @@ function hace($fecha_unix){
 	        }elseif($dias<=0){
 	                //echo $horas." horas ".$minutos." minutos";
 	                 return $horas." horas";
+
 	        }else{
 	                //echo $dias." dias ".$horas." horas ".$minutos." minutos";
 	                return $dias." dias";
@@ -2359,9 +2360,10 @@ function hace($fecha_unix){
 	      }
 
           function fecha_pro($fecha){
+
             //transforma la fecha a segundos y la resta con la fecha del servidor
+
             $segundos= strtotime('now')- strtotime($fecha);
-            // $segundos = CURRENT_TIMESTAMP - strtotime($fecha);
             //saca la diferencia en dias
             $diferencia_dias=intval($segundos/60/60/24);
             //diferencia en horas
@@ -2380,10 +2382,6 @@ function hace($fecha_unix){
                 }else {
                     return $diferencia_dias." dias.";
                 }
+
           }
-            function tamano_archivo($peso , $decimales = 2 ) {
-                $clase = array(" Bytes", " KB", " MB", " GB", " TB");
-                $peso=filesize($peso); 
-                return round($peso/pow(1024,($i = floor(log($peso, 1024)))),$decimales ).$clase[$i];
-            } 
 ?>

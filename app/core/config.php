@@ -1,10 +1,10 @@
 <?php
 
 	$MYSQL_HOST = "localhost";
-	$MYSQL_LOGIN = "root";
-	$MYSQL_PASS = "";
-	$MYSQL_DB = "bsocial_2";
-	$url = "http://localhost/bsocial/";
+	$MYSQL_LOGIN = "sumaboxc_bsocial";
+	$MYSQL_PASS = "bsocial";
+	$MYSQL_DB = "sumaboxc_bsocial_prueba";
+	$url = "http://sumabox.com/prueba_bsocial/juliooo/";
     
     session_start();
 
