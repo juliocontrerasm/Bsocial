@@ -32,7 +32,7 @@ height: 104px;
 	background-color: #2e3337;
 	height: 104px;
 }
-#logo h1, #logo h1 a, #logo-h2 h2 a, #iconos-user li a, h5, #contenedor-subir-foto a, #contenedor-subir-video a, .btn-borrar-img, .megusta a{
+#logo h1, #logo h1 a, #logo-h2 h2 a, #iconos-user li a, h5, #contenedor-subir-foto a, #contenedor-subir-video a, .btn-borrar-img, .megusta a, .btn-close-video{
 	text-indent: -100000px;
 	overflow: hidden;
 	display: block;
@@ -465,10 +465,12 @@ border-radius: 25px;
 }
 .publicacion{
 	float: left;
+	width: 540px;
 }
 .datos-publicacion{
 	margin:3px 0 15px 0;
 	float: left;
+	width: 460px;
 }
 .datos-publicacion h3{
 	font-size: 18px;
@@ -581,7 +583,7 @@ font-size: 11px;
 	background:url(img/bg-linea-comentarios.jpg) #e2e1e1 right top no-repeat;
 }
 .publicacion-comentario .datos-publicacion{
-	margin-bottom:0;
+	margin-bottom:11px;
 }
 .publicacion-comentario .datos-publicacion h3{
 	font-size: 14px;
@@ -864,13 +866,48 @@ padding:0 10px;
 #form-adjuntar-video p a:hover{
 	background-color: #23272a;
 }
-
-
-
-
-
-
-
+.btn-close-video{
+	background:url(img/btn-close-modal-video.jpg) center top no-repeat;
+	width: 30px;
+	height: 30px;
+}
+.btn-close-video:hover{
+	opacity: 0.8;
+}
+/* Liquidaciones */
+#contenedor-contenido{
+	float: left;
+	width: 476px;
+	padding:0 32px 25px 32px;
+	background-color: #ffffff;
+}
+#contenedor-contenido h3{
+	font-size: 24px;
+	color: #2e3337;
+	font-weight: 300;
+	margin:32px 0 40px 0;
+}
+#lista-con-pdf li{
+	width: 100%;
+	background:url(img/icn-pdf.jpg) 435px top no-repeat;
+	height: 22px;
+	padding-bottom: 18px;
+	margin-bottom: 11px;
+}
+#lista-con-pdf li a{
+	color:#a9a9a9;
+	font-size: 15px;
+	font-weight: 400;
+}
+#lista-con-pdf li a:hover{
+	color:#878686;
+}
+#lista-con-pdf li a span{
+	background:url(img/bg-lista.gif) center bottom repeat-x;
+	width: 100%;
+	float: left;
+	padding-bottom: 18px;
+}
 
 
 
@@ -1154,7 +1191,6 @@ padding:0 10px;
  
 /* close button positioned on upper right corner */
 .simple_overlay .close {
-    background-image:url(/media/img/overlay/close.png);
     position:absolute;
     right:-15px;
     top:-15px;
@@ -1162,6 +1198,17 @@ padding:0 10px;
     height:35px;
     width:35px;
 }
+.simple_overlay .close.btn-close-video{
+height:30px;
+width:30px;
+right:0px;
+top:0px;
+}
+
+
+
+
+
 .clearfix {display: inline-block;}
 
 /* Hides from IE-mac \*/

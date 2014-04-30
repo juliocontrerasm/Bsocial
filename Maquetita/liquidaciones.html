@@ -68,131 +68,17 @@
 				</ul>
 			</div>
 			<div id="col-centro" class="col-contenido">
-				<div id="contenedor-estado">
-					<form id="estado">
-						<textarea placeholder="¿Qué quieres publicar?"></textarea>
-						<div id="contenedor-fotos-adjuntas">
-							<ul>
-								<li> <a class="btn-borrar-img" title="Borrar imagen">Borrar imagen</a>
-									<img src="css/img/domi.jpg" />
-								</li>
-							</ul>	
-						</div>
-						<div id="btns-estado">
-							<p id="contenedor-subir-foto">
-								<a title="Adjuntar imagen"><input type="file" id="btn-subir-foto"/></a>
-							</p>
-							<p id="contenedor-subir-video">
-								<a title="Adjuntar video" rel="#modal-adjuntar-video">Adjuntar video</a>
-							</p>
-							<ul id="btn-visiblepor">
-								<li id="contenedor-drop-visible">
-									<a id="visiblepor-selected">Visible por</a>
-									<ul id="dropdown-visiblepor">
-										<li id="contenedor-flecha-gris"><span class="flecha-up"></span> <a href="#" title="Todos los grupos">Todos</a></li>
-										<li><a href="#" title="Ventas">Ventas</a></li>
-										<li><a href="#" title="Amiguis">Amiguis</a></li>
-									</ul>
-								</li>
-							</ul>
-							<p class="btn"><a title="Publicar">Publicar</a>
-							</p>
-						</div>
-					</form>
-					<style>
-					/* Este valor debe cambiar conforme aumenta el % de carga de la foto */
-					#barra-carga-foto{
-						width:180px;
-					}
-					</style>
-					<div id="barra-carga-foto">
-					</div>
-				</div>
-				<div class="contendor-publicacion">
-					<div class="foto-perfil">
-						<p><img src="css/img/img-perfil.jpg" alt="Imagen perfil" /></p>
-					</div>
-					<div class="datos-publicacion">
-					<h3>Warren Buffett</h3>
-					<p class="fecha-publicacion">22/01/2014 a las 18:02 Hrs.</p>
-					</div>
-					<div class="publicacion">
-						<div class="publicacion-video">
-							<iframe src="//player.vimeo.com/video/58898148?title=0&amp;byline=0&amp;portrait=0" width="380" height="214" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-						</div>
-						<div class="publicacion-texto">
-							<p>¡Feliz Cumpleaños Camila!</p>
-						</div>
-						<div class="contenedor-escribir-comentario">
-							<div class="escribir-comentario">
-								<form class="form-comentar-publicacion">
-									<textarea placeholder="Escribe un comentario..."></textarea>
-								</form>
-							</div>
-							<ul>
-								<li class="btn comentar"><a title="Comentar">Comentar</a></li>
-								<li class="btn megusta">
-									<!-- La clase del span debe cambiar segun los numeros que tenga: "un-numero", "dos-numeros" o "tres-numeros" -->
-									<span class="globo-megusta dos-numeros" title="1">99</span>
-									<a title="¡Me gusta!">¡Me gusta!</a>
-								</li>
-							</ul>	
-						</div>	
-					</div>
-					<!-- La class "bg-linea" imprime la línea gris debajo de cada div. Si se trata del último div de comentario, no debe llevar esta class -->
-					<div class="publicacion-comentario bg-linea">
-						<div class="foto-perfil">
-							<p><img src="css/img/img-perfil.jpg" alt="Imagen perfil" /></p>
-						</div>
-						<div class="datos-publicacion">
-							<h3>Orville Wright</h3>
-							<p class="fecha-publicacion">22/01/2014 a las 18:02 Hrs.</p>
-						</div>
-						<div class="publicacion-texto comentario">
-							<p>Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.</p>
-						</div>
-					</div>
-					<div class="publicacion-comentario">
-						<div class="foto-perfil">
-							<p><img src="css/img/img-perfil.jpg" alt="Imagen perfil" /></p>
-						</div>
-						<div class="datos-publicacion">
-							<h3>Wilbur Wright</h3>
-							<p class="fecha-publicacion">22/01/2014 a las 18:02 Hrs.</p>
-						</div>
-						<div class="publicacion-texto comentario">
-							<p>Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí".</p>
-						</div>
-					</div>
-				</div>
-				<div class="contendor-publicacion">
-					<div class="foto-perfil">
-						<p><img src="css/img/img-perfil.jpg" alt="Imagen perfil" /></p>
-					</div>
-					<div class="datos-publicacion">
-					<h3>James Hetfield</h3>
-					<p class="fecha-publicacion">22/01/2014 a las 18:02 Hrs.</p>
-					</div>
-					<div class="publicacion">
-						<div class="publicacion-texto">
-							<p>Victoria (del latín victoria) es un término, originalmente aplicado a la guerra, dado al éxito alcanzado en el combate personal, después de las operaciones militares en general o, por extensión, en cualquier competencia. El éxito en una campaña militar se considera una victoria estratégica, mientras que el éxito de una intervención militar es una victoria táctica.</p>
-						</div>
-						<div class="contenedor-escribir-comentario">
-							<div class="escribir-comentario">
-								<form class="form-comentar-publicacion">
-									<textarea placeholder="Escribe un comentario..."></textarea>
-								</form>
-							</div>
-							<ul>
-								<li class="btn comentar"><a title="Comentar">Comentar</a></li>
-								<li class="btn megusta">
-									<!-- La clase del span debe cambiar segun los numeros que tenga: "un-numero", "dos-numeros" o "tres-numeros" -->
-									<span class="globo-megusta un-numero" title="1">8</span>
-									<a title="¡Me gusta!">¡Me gusta!</a>
-								</li>
-							</ul>	
-						</div>	
-					</div>
+				<div id="contenedor-contenido">
+					<h3>Descarga tus liquidaciones de sueldo</h3>
+					<ul id="lista-con-pdf">
+						<li><a href="#" title="Clic para descargar tu liquidación de sueldo"><span>Liquidación 12/03/2011</span></a></li>
+						<li><a href="#" title="Clic para descargar tu liquidación de sueldo"><span>Liquidación 12/03/2011</span></a></li>
+						<li><a href="#" title="Clic para descargar tu liquidación de sueldo"><span>Liquidación 12/03/2011</span></a></li>
+						<li><a href="#" title="Clic para descargar tu liquidación de sueldo"><span>Liquidación 12/03/2011</span></a></li>
+						<li><a href="#" title="Clic para descargar tu liquidación de sueldo"><span>Liquidación 12/03/2011</span></a></li>
+					</ul>
+
+
 				</div>
 			</div>
 			<div id="col-derecha" class="col-contenido">
