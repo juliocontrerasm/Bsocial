@@ -8,13 +8,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
 <title>B-Social - La Red Social para Empresas</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" >
 <link rel="stylesheet" href="<?php echo $url;?>css/reset.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo $url;?>css/estilo.css" type="text/css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo $url;?>js/jquery.tools.min.js"></script> 
 <script type="text/javascript" src="<?php echo $url;?>js/funciones.js"></script>
+<script src="<?php echo $url;?>js/jquery-1.10.2.js"></script> 
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>  
+<script type="text/javascript" src="<?php echo $url;?>js/bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo $url;?>js/jquery-validate.min.js"></script>
+<script type="text/javascript" src="<?php echo $url;?>js/validCampoFranz.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500,300,400italic,300italic,100italic,100,500italic,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script> 
+
 
 </head>
 
@@ -22,7 +28,7 @@
 	<div id="contenedor-general" class="clearfix">
 		<div id="header">
 			<div id="logo">
-				<h1><a href="" title="B-Social - Home">B-Social - La Red Social para Empresas</a></h1>
+				<h1><a href="<?php echo $url;?>usuario/estados/" title="B-Social - Home">B-Social - La Red Social para Empresas</a></h1>
 			</div>
 			<div id="bigbanner">
 			</div>

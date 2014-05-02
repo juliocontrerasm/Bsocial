@@ -1,6 +1,6 @@
 <?php
-	require_once('../../core/config.php');
-	require_once('../../layout/prueba.php');
+  // require_once('../../core/config.php');
+   require_once('../../layout/header.php'); 
 	$usuario = new ajaxCRUD("Total", "usuarios", '', "./");
 	$region = new ajaxCRUD("Total", "regiones", '', "./");
 	$gr_us = new ajaxCRUD("Total", "grupo_usuario", '', "./");
@@ -33,6 +33,12 @@
 	 if($_GET['save'] == 1 ){ 
 		echo '<h3>Sus datos fueron Guardados con exito</h3>';
 	 } ?>
+
+
+      <div id="col-centro" class="col-contenido">
+        <div class="contendor-publicacion">
+
+        	
 	<form action="<?=$PHP_SELF?>" method="post" id="editar" onsubmit="return validar();" enctype="multipart/form-data">
 		<div id ="rut-content" class="rut" >
 			<div id="rut-description" ></div>
@@ -288,4 +294,6 @@
 	      }
 	    });
 	</script>
-	<?php require_once('../../layout/prueba_footer.php'); ?>
+        </div>
+      </div>
+  <?php require_once('../../layout/footer.php'); ?>

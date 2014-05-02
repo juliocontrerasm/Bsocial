@@ -26,7 +26,6 @@
 							<p>Saluda en su día de cumpleaños <br>a <a href="" title="Saluda a <?php  echo ucwords($usuarios[0]['nombre']).' '.ucwords($usuarios[0]['apellido']); ?>"><?php  echo ucwords($usuarios[0]['nombre']).' '.ucwords($usuarios[0]['apellido']); ?></span></a></p>
 						</div>
 				<?php }?>
-				
 				<div class="encuesta-destacada">
 					<h5 class="icn-encuestas-azul"></h5>
 					<p>¿Que beneficios te gustaría para tu cumpleaños?</p>

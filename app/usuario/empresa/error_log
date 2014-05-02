@@ -1,0 +1,4 @@
+[22-Apr-2014 10:07:28 America/Denver] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home8/sumaboxc/public_html/prueba_bsocial/juliooo/core/config.php on line 46
+[23-Apr-2014 08:37:16 America/Denver] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home8/sumaboxc/public_html/prueba_bsocial/juliooo/core/config.php on line 46
+[23-Apr-2014 08:37:16 America/Denver] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home8/sumaboxc/public_html/prueba_bsocial/juliooo/core/config.php on line 46
+[23-Apr-2014 08:37:16 America/Denver] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home8/sumaboxc/public_html/prueba_bsocial/juliooo/core/config.php on line 46

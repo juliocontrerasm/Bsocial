@@ -11,12 +11,23 @@ $grupos = $grupo->getQuery("SELECT gr.id, gr.nombre FROM grupos gr, usuarios us,
 					</p>
 				</form>	
 				<ul class="menu-troncal menu-bsocial">
+	
 				<?php foreach ($categorias as $c){ 
 						$publicaciones = $publicacion->getQuery("SELECT count(id) as count FROM `publicaciones` WHERE id_categoria = ".$c['id']." AND id_usuario in(SELECT id_usuario FROM grupo_usuario WHERE id_grupo in (SELECT id_grupo FROM grupo_usuario WHERE id_usuario = ".$_SESSION['id_usuario']." )) AND DATE_FORMAT(created,'%Y-%m-%d') = DATE_FORMAT(NOW(),'%Y-%m-%d')");
 						 // pr($publicaciones);
 					?>
-					<li><a href="?categoria=<?php echo $c['id']?>"  title="Novedades" id="<?php echo $c['icono']?>"> <?php echo $c['nombre']; if($publicaciones[0]['count'] != 0){?><span class="globo"><?php echo $publicaciones[0]['count'];?></span><?php }?></a></li>
+					<li><a href="<?php echo $url;?>usuario/estados/?categoria=<?php echo $c['id']?>"  title="Novedades" id="<?php echo $c['icono']?>"> <?php echo $c['nombre']; if($publicaciones[0]['count'] != 0){?><span class="globo"><?php echo $publicaciones[0]['count'];?></span><?php }?></a></li>
 				<?php } ?>
+					
+					<!-- <li><a href="#" title="Novedades" id="icn-novedades">Novedades</a></li>
+					<li><a href="#" title="Avisos" id="icn-avisos">Avisos <span class="globo">1</span></a></li>
+					<li><a href="#" title="Encuestas" id="icn-encuestas">Encuestas</a></li>
+					<li><a href="#" title="Mercadito" id="icn-mercadito">Mercadito <span class="globo">99</span></a></li>
+					<li><a href="#" title="Cumpleaños" id="icn-cumpleanos">Cumpleaños</a></li>
+					<li><a href="#" title="Elige al mejor" id="icn-elige">Elige al mejor</a></li>
+					<li><a href="#" title="Beneficios" id="icn-beneficios">Beneficios</a></li>
+					<li><a href="#" title="Liquidaciones" id="icn-liquidaciones">Liquidaciones</a></li> -->
+
 				</ul>
 				<div id="grupos-sidebar">
 					<h4>Grupos</h4>
@@ -28,6 +39,8 @@ $grupos = $grupo->getQuery("SELECT gr.id, gr.nombre FROM grupos gr, usuarios us,
 								$con++;
 							}
 						?>
+						<!-- <li><a href="#" title="Sucursal Norte">Sucursal Norte <span class="globo">2</span></a></li>
+						<li><a href="#" title="Amigo Secreto">Amigo Secreto <span class="globo">10</span></a></li> -->
 					</ul>
 					<?php if($con > 4) { ?>
 					<p><a href="" title="Ver más grupos">+ Ver más grupos</a></p>

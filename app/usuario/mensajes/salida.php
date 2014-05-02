@@ -1,7 +1,7 @@
 <?php 
 # Incluimos la configuracion
-  require_once('../../core/config.php');
-  require_once('../../layout/prueba.php');
+  // require_once('../../core/config.php');
+   require_once('../../layout/header.php'); 
   if(!$_SESSION['empresa'] && !$_SESSION['nombre']){
     header('Location: ../login/?error=2');
   }
@@ -10,6 +10,10 @@ $usuario = new ajaxCRUD("Total", "usuarios", '', "./");
 # Buscamos los mensajes privados
 $mensajes = $mensaje->getQuery("SELECT me.* FROM mensajes me, mensaje_usuario me_us WHERE me.de='".$_SESSION['id_usuario']."' AND me_us.id_mensaje=me.id AND me_us.id_usuario = me.de AND me.id_mensaje = 0 AND me_us.deleted = 0 AND me_us.rol =2 GROUP BY me.id");
 ?>
+
+      <div id="col-centro" class="col-contenido">
+        <div class="contendor-publicacion">
+
 Menu:  <a href="../perfil" title="Editar perfil">Editar datos</a> | <a href="../estados" title="Home">Home</a> | <a href="index.php">Ver mensajes</a> | <a href="crear.php">Crear mensajes</a> | <a href="salida.php">Ver mensajes enviados</a> | <a href="../login/logout.php">Cerrar sesion</a><br /><br />
   <form id="mensajes-form" action="borrar.php?rol=2" method="post">
     <button type="submit">borra</button>
@@ -34,4 +38,6 @@ Menu:  <a href="../perfil" title="Editar perfil">Editar datos</a> | <a href="../
     } ?>
     </table>
   </form>
-  <?php require_once('../../layout/prueba_footer.php'); ?>
+        </div>
+      </div>
+  <?php require_once('../../layout/footer.php'); ?>

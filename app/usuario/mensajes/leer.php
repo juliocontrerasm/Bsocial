@@ -1,6 +1,6 @@
 <?php 
-	require_once('../../core/config.php');
-	require_once('../../layout/prueba.php');
+	// require_once('../../core/config.php');
+	 require_once('../../layout/header.php'); 
 	if(!$_SESSION['empresa'] && !$_SESSION['nombre']){
 		header('Location: ../login/?error=2');
 	}
@@ -27,6 +27,11 @@
 	}
 	$respuestas = $mensaje->getQuery("SELECT * FROM mensajes WHERE id_mensaje = '".$id."' ORDER BY created DESC");
 ?>
+
+
+      <div id="col-centro" class="col-contenido">
+        <div class="contendor-publicacion">
+        	
 Menu:  <a href="../perfil" title="Editar perfil">Editar datos</a> | <a href="../estados" title="Home">Home</a> | <a href="index.php">Ver mensajes</a> | <a href="crear.php">Crear mensajes</a> | <a href="salida.php">Ver mensajes enviados</a> | <a href="../login/logout.php">Cerrar sesion</a><br /><br />
 <form action="" method="post">
 <strong>Asunto:</strong> <?=$mensajes[0]['asunto']?><br /><br />
@@ -61,4 +66,8 @@ Menu:  <a href="../perfil" title="Editar perfil">Editar datos</a> | <a href="../
 	}
 	?>
 	</form>
-	<?php require_once('../../layout/prueba_footer.php'); ?>
+
+
+        </div>
+      </div>
+  <?php require_once('../../layout/footer.php'); ?>

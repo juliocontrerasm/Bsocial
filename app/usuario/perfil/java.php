@@ -38,5 +38,5 @@ comuna();
 
 <?php $publicaciones = $publicacion->getQuery("SELECT pu.* FROM publicaciones as pu, grupos as gr, usuarios as us, grupo_usuario as gr_us, empresas as en WHERE us.id_empresa = ".$_SESSION['empresa']." AND us.id =".$_SESSION['id_usuario']." AND gr_us.id_usuario =".$_SESSION['id_usuario']." AND gr.id_empresa = ".$_SESSION['empresa']." AND gr_us.id_grupo = gr.id AND pu.id_grupo = gr.id OR pu.id_usuario_etiquetado = ".$_SESSION['id_usuario']." GROUP BY pu.id ORDER BY pu.created DESC");
 		
-	pr($publicaciones);
+	// pr($publicaciones);
 	require_once('../../layout/prueba_footer.php'); ?>

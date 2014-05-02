@@ -1,6 +1,6 @@
 <?php 
-	require_once('../../core/config.php');
-	require_once('../../layout/prueba.php');
+	// require_once('../../core/config.php');
+	require_once('../../layout/header.php');
 	if(!$_SESSION['empresa'] && !$_SESSION['nombre']){
 		header('Location: ../login/?error=2');
 	}
@@ -26,8 +26,12 @@
 			echo "Mensaje enviado correctamente.";
 		}
 	}
-	pr($_SESSION["autocompletar"]);
+	// pr($_SESSION["autocompletar"]);
 	?>
+
+      <div id="col-centro" class="col-contenido">
+        <div class="contendor-publicacion">
+        	
 	Menu:  <a href="../perfil" title="Editar perfil">Editar datos</a> | <a href="../estados" title="Home">Home</a> | <a href="index.php">Ver mensajes</a> | <a href="crear.php">Crear mensajes</a> | <a href="salida.php">Ver mensajes enviados</a> | <a href="cerrar.php">Cerrar sesion</a><br /><br />
 	<form method="post" action="" >
 	<br /><br />
@@ -69,4 +73,6 @@
 	});
 	</script>
 
-	<?php require_once('../../layout/prueba_footer.php'); ?>
+        </div>
+      </div>
+  <?php require_once('../../layout/footer.php'); ?>

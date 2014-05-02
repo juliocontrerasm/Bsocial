@@ -1,6 +1,6 @@
 <?php
-	require_once('../../core/config.php');
-	require_once('../../layout/prueba.php');
+  // require_once('../../core/config.php');
+   require_once('../../layout/header.php'); 
 	if(!$_SESSION['empresa'] && !$_SESSION['nombre']){
 		header('Location: ../login/?error=2');
 	}
@@ -39,6 +39,10 @@
 		endif;
 	endif;
 ?>
+
+      <div id="col-centro" class="col-contenido">
+        <div class="contendor-publicacion">
+
 Menu:  <a href="../estados" title="Ver estados">Estados</a> | <a href="../mensajes/" title= "ve a mensajes">Mensajes</a> | <a href="../login/logout.php" title= "Cerrar sesion">Cerrar sesion </a>	
 	<?php if($_GET['error'] == 1 ){ 
 			echo '<h3>Su contraseña no coincide</h3>';
@@ -312,4 +316,7 @@ Menu:  <a href="../estados" title="Ver estados">Estados</a> | <a href="../mensaj
       		}
     	});
 	</script>
-	<?php require_once('../../layout/prueba_footer.php'); ?>
+	
+        </div>
+      </div>
+  <?php require_once('../../layout/footer.php'); ?>

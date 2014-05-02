@@ -14,7 +14,7 @@
 	if($_POST['nuevo_publicacion']!=null){
 		$texto = addslashes(strip_tags($_POST['nuevo_publicacion']));
 		$publicacion->getQuery("INSERT INTO  `publicaciones` (`id`,`id_categoria`,`id_usuario` ,`id_grupo` ,`id_tipo` ,`texto` ,`created` ,`deleted`)
-		VALUES (NULL , '".$_POST['categoria']."',  '".$_SESSION['id_usuario']."',  '".$_POST['grupo_publicacion']."',  '".$_POST['tipo_publicacion']."',  '".$texto."', CURRENT_TIMESTAMP ,  '0');");
+		VALUES (NULL , 0,  '".$_SESSION['id_usuario']."',  '".$_POST['grupo_oculto']."',  0,  '".$texto."', CURRENT_TIMESTAMP ,  '0');");
 	}
 		// echo  $_SESSION['id_usuario']. '<br />';
 		// echo  $_SESSION['usuario']. '<br />';
@@ -33,8 +33,9 @@
 ?>
 		<div id="col-centro" class="col-contenido">
 				<div id="contenedor-estado">
-					<form id="estado">
+					<form id="estado" method="POST">
 						<textarea name="nueva_publicacion" placeholder="¿Qué quieres publicar?"></textarea>
+						<input type ="hidden" value="1" name="grupo_oculto" id="grupo_oculto" />
 						<?php if ($cargando == 1){?>
 								<div id="contenedor-fotos-adjuntas">
 									<ul>
@@ -55,17 +56,31 @@
 								<li id="contenedor-drop-visible">
 									<a id="visiblepor-selected">Visible por</a>
 									<ul id="dropdown-visiblepor">
-										<li id="contenedor-flecha-gris"><span class="flecha-up"></span><a href="#" title="Todos los grupos">Todos</a></li>
+										<li id="contenedor-flecha-gris"><span class="flecha-up"></span><a href="#" title="Todos los grupos" value="1">Todos</a></li>
 										<?php foreach($grupos as $g){?>
-												<li><a href="#" title="<?php echo $g['nombre']?>"><?php echo $g['nombre']?></a></li>
+												<li><a href="#" title="<?php echo $g['nombre']?>" value="<?php echo $g['id'];?>" id="grupo-<?php echo $g['id'];?>"><?php echo $g['nombre']?></a></li>
 										<?php }?>
+										<script type="text/javascript">
+												$("#dropdown-visiblepor li a").click(function(){
+
+													var valor = $(this).attr("value");
+													$("#grupo_oculto").attr("value",valor);
+													// alert(valor);
+
+												});
+										</script>
 									</ul>
 								</li>
 							</ul>
-							<p class="btn"><a title="Publicar">Publicar</a>
+							<p class="btn"><a title="Publicar" id="publicar">Publicar</a>
 							</p>
 						</div>
 					</form>
+					<script type="text/javascript">
+							$("#publicar").click(function(){
+								$("#estado").submit();
+							});
+					</script>
 					<style>
 					/* Este valor debe cambiar conforme aumenta el % de carga de la foto */
 					#barra-carga-foto{
@@ -87,7 +102,7 @@
 					?>
 				<div class="contendor-publicacion">
 					<div class="foto-perfil">
-						<p><img src="css/img/<?php echo $publicacion['id_usuario'];?>-perfil.jpg" alt="Imagen perfil" /></p>
+						<p><img src="<?php echo $url;?>/usuario/perfil/img/1/<?php echo $publicacion['id_usuario'];?>.jpg" alt="Imagen perfil" /></p>
 					</div>
 					<div class="datos-publicacion">
 					<h3><?php echo $nombre_usuario[0]['nombre']?></h3>
@@ -120,12 +135,45 @@
 								<li class="btn comentar"><a title="Comentar">Comentar</a></li>
 								<li class="btn megusta">
 									<!-- La clase del span debe cambiar segun los numeros que tenga: "un-numero", "dos-numeros" o "tres-numeros" -->
-									<span class="globo-megusta dos-numeros" title="1">99</span>
-									<a title="¡Me gusta!">¡Me gusta!</a>
+									<span class="globo-megusta dos-numeros" id="like-count-<?php echo $i; ?>" title="1"><?php echo $like_estado[0]['count'];?></span>
+									<a id="like-publicacion-<?php echo $i; ?>" title="¡Me gusta!">¡Me gusta!</a>
 								</li>
 							</ul>	
 						</div>	
 					</div>
+					<script>
+			jQuery(document).ready(function ($){
+				$("#like-publicacion-<?php echo $i;?>").click(function() {
+					var like= $("#like-count-<?php echo $i;?>").html();
+					var like_text=$("#like-publicacion-<?php echo $i;?>").html();
+					if(like_text =='¡Me gusta!'){
+					like = parseInt(like)+1;
+					like_text ='¡Ya no me gusta!';
+					$("#like-publicacion-<?php echo $i;?>").html(like_text);
+					$("#like-publicacion-<?php echo $i;?>").attr( "title", like_text );
+					$("#like-count-<?php echo $i;?>").html(like);
+				}else{
+					like = parseInt(like)-1;
+					like_text ='¡Me gusta!';
+					$("#like-publicacion-<?php echo $i;?>").html(like_text);
+					$("#like-publicacion-<?php echo $i;?>").attr( "title", like_text );
+					$("#like-count-<?php echo $i;?>").html(like);
+				}
+					$.ajax({
+                        url:'likes.php', 
+                        data:{ 
+                        id_publicacion: <?php echo $publicacion['id'];?>,
+                        id_usuario: <?php echo $_SESSION['id_usuario'];?>,
+                    	},
+                        type: 'POST',
+                        async: true,
+                        cache: false,
+                        success: function(responsetext,textStatus,xhr,data,callback,result) {},
+                        error: function (xhr, ajaxOptions, thrownError,data) {}
+                      });
+				});
+			});
+			</script>
 					<!-- La class "bg-linea" imprime la línea gris debajo de cada div. Si se trata del último div de comentario, no debe llevar esta class -->
 					<?php if($comentarios != null){ 
 						$con = 0;
@@ -141,7 +189,7 @@
 						<div class="publicacion-comentario">
 							<?php }?>
 						<div class="foto-perfil">
-							<p><img src="css/img/<?php echo $con['id_usuario'];?>-perfil.jpg" alt="Imagen perfil" /></p>
+							<p><img src="<?php echo $url;?>/usuario/perfil/img/1/<?php echo $publicacion['id_usuario'];?>.jpg" alt="Imagen perfil" /></p>
 						</div>
 						<div class="datos-publicacion">
 							<h3><?php echo $nombre_usuario_comentario[0]['nombre'];?></h3>
@@ -155,7 +203,8 @@
 							}
 						} ?>
 				</div>
-				<?php } ?>
+				<?php $i++; } ?>
 				<!-- termino de publicaciones -->
 			</div>
+			
 <?php require_once('../../layout/footer.php'); 
