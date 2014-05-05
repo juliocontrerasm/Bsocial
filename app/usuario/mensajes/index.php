@@ -13,9 +13,61 @@ $mensajes = $mensaje->getQuery("SELECT me.* FROM mensajes me, mensaje_usuario me
 
 
       <div id="col-centro" class="col-contenido">
-        <div class="contendor-publicacion">
-
-
+        <div id="contenedor-contenido" class="contenedor-mensajes">
+          <div id="menu-mensajes">
+            <ul>
+              <li class="current"><a href="index.php" title="Mensajes recibidos">Recibidos</a>|</li>
+              <li><a href="salida.php" title="Mensajes enviados">Enviados</a>|</li>
+              <li><a href="borrar.php" title="Borrar mensajes">Borrar</a></li>
+              <!-- <li><a href="#" title="Buscar Mensajes" class="btn-lupita-trans">Buscar</a></li> -->
+              <li class="btn"><a href="crear.php" title="Escribir nuevo mensaje">Nuevo</a></li>
+            </ul>
+          </div>
+          <form id="mensajes-form" action="borrar.php?rol=1" method="post">
+            <?php   foreach($mensajes as $me){ 
+                      $nombre = $usuario->getQuery("SELECT nombre From usuarios WHERE id=".$me['de']); ?>
+                      <div class="mensaje <?php if($me['leido'] == "si") {echo "leido"; }?>">
+                        <div class="msj-check">
+                          <p><input type="checkbox" name="mensaje_borra[]" value="<?php echo $me['id']; ?>"/></p>
+                        </div>
+                        <div class="msj-asunto">
+                          <h3><a href="leer.php?id=<?=$me['id']?>" title="<?php echo $me['asunto'];?>"><?php echo $me['asunto'];?></a></h3>
+                          <p><?php echo ucwords($nombre[0]['nombre']);?></p>
+                        </div>
+                        <div class="msj-fecha">
+                          <p><?php  echo date('d/m/Y', $me['created']); ?></p>
+                          <p>a las <?php echo date('H:i', $me['created']); ?> Hrs.</p>
+                        </div>
+                      </div>
+            <?php } ?>
+           <!--  <div class="mensaje">
+              <div class="msj-check">
+                <p><input type="checkbox" name="mensaje_borra[]" value="<?php echo $me['id']; ?>"/></p>
+              </div>
+              <div class="msj-asunto">
+                <h3><a href="leer.php?id=<?=$me['id']?>" title="<?php echo $me['asunto'];?>"><?php echo $me['asunto'];?></a></h3>
+                <p><?php ucwords($nombre[0]['nombre']);?></p>
+              </div>
+              <div class="msj-fecha">
+                <p><?php echo date_format($me['fecha'],'d/m/Y'); ?></p>
+                <p>a las <?php echo date_format($me['fecha'],'H:i'); ?> Hrs.</p>
+              </div>
+            </div>
+            <div class="mensaje leido">
+              <div class="msj-check">
+                <p><input type="checkbox" /></p>
+              </div>
+              <div class="msj-asunto">
+                <h3><a href="" title="¡bsocial se expande a México, y Brasil!">¡bsocial se expande a México, y Brasil!</a></h3>
+                <p>Felipe Morales, Gonzalo Contreras, Felix Saucedo y 3 más...</p>
+              </div>
+              <div class="msj-fecha">
+                <p>07/01/2016</p>
+                <p>a las 10:42 Hrs.</p>
+              </div>
+            </div>
+          </form>
+       
 
 Menu:  <a href="../perfil" title="Editar perfil">Editar datos</a> | <a href="../estados" title="Home">Home</a> | <a href="index.php">Ver mensajes</a> | <a href="crear.php">Crear mensajes</a> | <a href="salida.php">Ver mensajes enviados</a> | <a href="../login/logout.php">Cerrar sesion</a><br /><br />
   <form id="mensajes-form" action="borrar.php?rol=1" method="post">
@@ -40,8 +92,8 @@ Menu:  <a href="../perfil" title="Editar perfil">Editar datos</a> | <a href="../
 <?php $i++; 
 } ?>
 </table>
-</form>
+</form> -->
           
-        </div>
+       </div>
       </div>
   <?php require_once('../../layout/footer.php'); ?>

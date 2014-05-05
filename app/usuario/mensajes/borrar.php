@@ -1,6 +1,5 @@
 <?php
 	require_once('../../core/config.php');
-	require_once('../../layout/prueba.php');
 	$mensaje_usuario = new ajaxCRUD("Total", "mensaje_usuario", '', "./");
 	$mensaje_borrar =$_POST['mensaje_borra'];
 	$rol = $_GET['rol'];
@@ -12,4 +11,3 @@
 	}else{
 		header('Location: salida.php');
 	}
-	require_once('../../layout/prueba_footer.php'); ?>
