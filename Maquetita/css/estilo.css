@@ -19,6 +19,117 @@ a{
 width:1200px;
 margin:0 auto;	
 }
+body.login{
+	background: none;
+	background-color: #0082c9;
+}
+#contenedor-general.login{
+background:url(img/bg-login.png) #0082c9 240px 121px no-repeat;
+}
+#contenedor-formulario{
+width: 318px;
+margin:80px 0 0 119px;
+}
+#contenedor-formulario h1{
+width: 268px;
+height: 69px;
+background:url(img/logo-login-grande.png) center top no-repeat;
+margin:0 auto 42px auto;
+}
+#login{
+background-color: #ffffff;
+-webkit-border-radius: 4px 4px 4px 4px;
+border-radius: 4px 4px 4px 4px;
+width: 237px;
+height: 293px;
+padding: 26px 32px 21px 32px;
+margin:0 auto;
+}
+#contenedor-formulario h2{
+background:url(img/logo-login-chico.png) center top no-repeat;
+width: 152px;
+height: 39px;
+margin:36px auto 0 auto;
+}
+#login label{
+font-size: 15px;
+color: #7e7e7e;
+width: 100%;
+float: left;
+margin-bottom: 8px;
+}
+#login input, #login select{
+-webkit-border-radius: 4px 4px 4px 4px;
+border-radius: 4px 4px 4px 4px;
+color:#969696;
+font-size: 14px;
+border: none;
+background-color: #e8e8e8;
+width: 214px;
+padding: 7px 10px 7px 12px;
+margin-bottom: 20px;
+}
+#login select{
+	width: 236px;
+	padding: 7px 10px 7px 12px;
+}
+#login #input_run_digito{
+	width:10px;
+}
+#login #input_run{
+width:169px;
+}
+#contenedor-run{
+	color: #7E7E7E;
+}
+.hide{
+	display: none;
+}
+#olvido-contrasena{
+	text-align: center;
+	margin-top: 28px;
+	float: left;
+	width: 100%;	
+}
+#olvido-contrasena a{
+	font-size: 15px;
+	color: #7e7e7e;
+	text-decoration: none;
+}
+#olvido-contrasena a:hover{
+text-decoration: underline;
+}
+#login-ingresar{
+width: 100%;
+margin-top:2px;
+}
+#login-ingresar.btn a{
+	border-radius: 0;
+	float: left;
+	font-size: 18px;
+	padding: 10px 35px;
+	margin-left: 49px;
+}
+#login-footer{
+	float: left;
+	color:#ffffff;
+	font-size: 14px;
+	width: 100%;
+	margin-top: 50px;
+	text-align:center;
+}
+#login-footer a{
+	color:#ffffff;
+}
+#login-footer a:hover{
+	text-decoration: underline;
+}
+.bold{
+	font-weight: bold;
+}
+
+
+
 #header, #contenedor-central{
 width:100%;
 float:left;
@@ -32,7 +143,7 @@ height: 104px;
 	background-color: #2e3337;
 	height: 104px;
 }
-#logo h1, #logo h1 a, #logo-h2 h2 a, #iconos-user li a, h5, #contenedor-subir-foto a, #contenedor-subir-video a, .btn-borrar-img, .megusta a, .btn-close-video, .btn-lupita-trans{
+#logo h1, #logo h1 a, #logo-h2 h2 a, #iconos-user li a, h5, #contenedor-subir-foto a, #contenedor-subir-video a, .btn-borrar-img, .megusta a, .btn-close-video, .btn-lupita-trans, #contenedor-formulario h1, #contenedor-formulario h2{
 	text-indent: -100000px;
 	overflow: hidden;
 	display: block;
@@ -74,10 +185,10 @@ float: left;
 	background:url(img/bg-contenedor-central.jpg) left top repeat-y;
 }
 #form-buscador{
-	width:258px;
-	height: 40px;
-	background-color: #ececec;
-	-webkit-border-radius: 5px 5px 5px 5px;
+width:258px;
+height: 40px;
+background-color: #ececec;
+-webkit-border-radius: 5px 5px 5px 5px;
 border-radius: 5px 5px 5px 5px;
 margin:28px 0 0 20px;
 }
@@ -1030,11 +1141,15 @@ margin-right: 3px;
 .mensaje-abierto{
 	float: left;
 	width: 100%;
+	margin-bottom: 3px;
 }
 .mensaje-abierto .foto-perfil{
 	margin-left:12px;
 	margin-right:12px;
 	margin-top:10px;
+}
+.mensaje-abierto:last-child{
+	margin-bottom: 0;
 }
 .texto-mensaje{
 	width: 360px;
@@ -1082,6 +1197,12 @@ margin-right: 3px;
 }
 .mensaje-abierto.blanco .foto-perfil{
 	margin-top:20px;
+}
+.escribir-comentario.responder-mensaje{
+	width:431px;
+}
+.responder-mensaje textarea{
+	width:421px;
 }
 #contenedor-drop-mensajes{
 	position: relative;

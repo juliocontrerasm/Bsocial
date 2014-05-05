@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+<title>B-Social - La Red Social para Empresas</title>
+<link rel="stylesheet" href="css/reset.css" type="text/css" />
+<link rel="stylesheet" href="css/estilo.css" type="text/css" />
+<script type="text/javascript" src="js/jquery.tools.min.js"></script> 
+<script type="text/javascript" src="js/funciones.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic,300italic,100italic,100,500italic,700italic,900,900italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body class="login">
+	<div id="contenedor-general" class="clearfix login">
+		<div id="contenedor-formulario">
+			<h1>bsocial</h1>
+			<form id="login">
+				<p>
+					<label for="tipo_documento">Tipo de documento</label>
+					<select name="tipo_documento" id="tipo_documento">
+						<option value="run" id="documento-run" selected>R.U.N.</option>
+						<option value="usuario" id="documento-usuario">Usuario</option>
+						<option value="dni" id="documento-dni">D.N.I.</option>
+						<option value="pasaporte" id="documento-pasaporte">Pasaporte</option>
+					</select>
+				</p>
+				<p id="contenedor-run" class="contenedor-input">
+					<label for="input_run">Ingresa tu R.U.N.</label>
+					<input type="text" name="input_run" id="input_run" placeholder="Ej: 12345678" maxlength="8" /> - <input type="text" name="input_run_digito" id="input_run_digito" placeholder="9" maxlength="1" />
+				</p>
+				<p id="contenedor-usuario" class="contenedor-input hide">
+					<label for="input_usuario">Ingresa tu Usuario</label>
+					<input type="text" name="input_usuario" id="input_usuario" placeholder="juan.perez" />
+				</p>
+				<p id="contenedor-dni" class="contenedor-input hide">
+					<label for="input_dni">Ingresa tu D.N.I.</label>
+					<input type="text" name="input_dni" id="input_dni" placeholder="Ej: 12345678" maxlength="8" />
+				</p>
+				<p id="contenedor-pasaporte" class="contenedor-input hide">
+					<label for="input_pasaporte">Ingresa tu Pasaporte</label>
+					<input type="text" name="input_pasaporte" id="input_pasaporte" placeholder="Ej: 123456789" maxlength="9" />
+				</p>
+				<p>
+					<label for="input_contrasena">Contraseña</label>
+					<input type="password" name="input_contrasena" id="input_contrasena" maxlength="12" />
+				</p>
+				<p id="login-ingresar" class="btn">
+					<a href="#" title="Ingresar">Ingresar</a>
+				</p>
+				<p id="olvido-contrasena">
+					<a href="#" title="¿Olvidaste tu contraseña?">¿Olvidaste tu contraseña?</a>
+				</p>
+			</form>
+			<h2>La red social para empresas</h2>
+		</div>
+		<p id="login-footer">¿Necesitas soporte técnico? <a href="#" title="Contáctanos" class="bold">Contáctanos</a> | Desarrollado por <a href="#" title="Ir a SUMA.cl" target="_blank">SUMA</a></p>
+	</div>
+</body>
+</html>
