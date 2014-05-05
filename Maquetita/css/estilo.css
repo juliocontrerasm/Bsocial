@@ -179,12 +179,12 @@ background:url(img/icn-beneficios.png) #0266b5 10px center no-repeat;
 #icn-liquidaciones:hover{
 background:url(img/icn-liquidaciones.png) #0266b5 10px center no-repeat;	
 }
-.menu-troncal a span{
-	background-color: #ececec;
-	color:#004072;
-	font-size: 16px;
-	padding: 4px 10px;
-	-webkit-border-radius: 11px;
+.menu-troncal a span, .drop-asunto .globo{
+background-color: #ececec;
+color:#004072;
+font-size: 16px;
+padding: 4px 10px;
+-webkit-border-radius: 11px;
 border-radius: 11px;
 font-weight: 300;
 float: right;
@@ -1124,12 +1124,13 @@ margin-right: 3px;
 .drop-mensaje{
 	background-color: #ffffff;
 	height: 66px;
-	padding-left: 26px;
+	padding-left: 19px;
 	background:url(img/bg-drop-mensajes.gif) center bottom no-repeat;
+	position:relative;
 }
 .drop-mensaje p{
 	float: left;
-	width: 218px;
+	width: 208px;
 }
 #contenedor-drop-mensajes #dropdown-mensajes .drop-mensaje .drop-asunto a{
 	width: auto;
@@ -1161,7 +1162,15 @@ margin-right: 3px;
 .drop-mensaje.noleido{
 	background-color: #EEF1F4;
 }
-
+.drop-asunto .globo{
+	position: absolute;
+	top:15px;
+	right: 7px;
+	color:#8b8b8b;
+	font-size: 14px;
+	padding: 4px 7px;
+	margin: 0;
+}
 
 
 
