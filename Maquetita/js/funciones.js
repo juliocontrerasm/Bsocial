@@ -47,8 +47,10 @@ $( "#tipo_documento" ).change(function() {
 		$("#contenedor-pasaporte").show();
 	}
 });	
-
-
+$("#foto-img").change(function() {
+	var archivo = $("#foto-img" ).attr("value");
+ 	$("#url-video").attr("value", archivo);
+});
 
 
 

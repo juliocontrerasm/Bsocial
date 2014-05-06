@@ -238,57 +238,39 @@ text-decoration: none;
 margin-bottom:11px;
 font-weight: 300;
 padding:15px 0 0 64px;
+background-color: #014f8d;
+background-position: 10px center;
+background-repeat: no-repeat;
+}
+.menu-troncal li a:hover{
+background-color: #0266b5;
+}
+#icn-novedades{
+background-image:url(img/icn-novedades.png);
+}
+#icn-avisos{
+background-image:url(img/icn-avisos.png);	
+}
+#icn-encuestas{
+background-image:url(img/icn-encuestas.png);
+}
+#icn-mercadito{
+background-image:url(img/icn-mercadito.png);	
+}
+#icn-cumpleanos{
+background-image:url(img/icn-cumpleanos.png);	
+}
+#icn-elige{
+background-image:url(img/icn-elige.png);	
+}
+#icn-beneficios{
+background-image:url(img/icn-beneficios.png);	
+}
+#icn-liquidaciones{
+background-image:url(img/icn-liquidaciones.png);	
 }
 .menu-troncal li a:hover, .menu-troncal li a.current{
 background-color:#0266b5;
-}
-#icn-novedades{
-background:url(img/icn-novedades.png) #014f8d 10px center no-repeat;
-}
-#icn-avisos{
-background:url(img/icn-avisos.png) #014f8d 10px center no-repeat;	
-}
-#icn-encuestas{
-background:url(img/icn-encuestas.png) #014f8d 10px center no-repeat;	
-}
-#icn-mercadito{
-background:url(img/icn-mercadito.png) #014f8d 10px center no-repeat;	
-}
-#icn-cumpleanos{
-background:url(img/icn-cumpleanos.png) #014f8d 10px center no-repeat;	
-}
-#icn-elige{
-background:url(img/icn-elige.png) #014f8d 10px center no-repeat;	
-}
-#icn-beneficios{
-background:url(img/icn-beneficios.png) #014f8d 10px center no-repeat;	
-}
-#icn-liquidaciones{
-background:url(img/icn-liquidaciones.png) #014f8d 10px center no-repeat;	
-}
-#icn-novedades:hover{
-background:url(img/icn-novedades.png) #0266b5 10px center no-repeat;
-}
-#icn-avisos:hover{
-background:url(img/icn-avisos.png) #0266b5 10px center no-repeat;	
-}
-#icn-encuestas:hover{
-background:url(img/icn-encuestas.png) #0266b5 10px center no-repeat;	
-}
-#icn-mercadito:hover{
-background:url(img/icn-mercadito.png) #0266b5 10px center no-repeat;	
-}
-#icn-cumpleanos:hover{
-background:url(img/icn-cumpleanos.png) #0266b5 10px center no-repeat;	
-}
-#icn-elige:hover{
-background:url(img/icn-elige.png) #0266b5 10px center no-repeat;	
-}
-#icn-beneficios:hover{
-background:url(img/icn-beneficios.png) #0266b5 10px center no-repeat;	
-}
-#icn-liquidaciones:hover{
-background:url(img/icn-liquidaciones.png) #0266b5 10px center no-repeat;	
 }
 .menu-troncal a span, .drop-asunto .globo{
 background-color: #ececec;
@@ -301,7 +283,6 @@ font-weight: 300;
 float: right;
 margin:-4px 10px 0 0;
 }
-
 #grupos-sidebar{
 	float: left;
 }
@@ -942,7 +923,10 @@ margin-bottom: 20px;
 #dropdown-visiblepor.ocultar{
 display: none;
 }
-#modal-adjuntar-video p{
+#modal-subir-foto{
+	padding-top:20px;
+} 
+#modal-adjuntar-video p, #modal-subir-foto p{
 	color:#9f9f9f;
 	font-size: 15px;
 	width: 490px;
@@ -951,7 +935,7 @@ display: none;
 	font-weight: 300;
 	margin:30px 0 0 30px;
 }
-#form-adjuntar-video p{
+#form-adjuntar-video p, #modal-subir-foto p{
 	margin-top:10px;
 }
 #form-adjuntar-video p input{
@@ -961,7 +945,7 @@ background-color: #e1e2e2;
 float: left;
 height: 44px;
 width: 350px;
-color:#9f9f9f;
+color:#5E5F5F;
 font-size: 15px;
 font-weight: 300;
 padding:0 10px;
@@ -1292,20 +1276,108 @@ margin-right: 3px;
 	padding: 4px 7px;
 	margin: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#contenedor-contenido.perfil{
+	padding-top:32px;
+}
+#contenedor-contenido.perfil h3{
+	margin-top:0;
+	margin-bottom: 20px;
+	float: left;
+	width: 260px;
+	font-size: 22px;
+	color:#393939;
+	font-weight: 500;
+	line-height: 27px;
+}
+#contenedor-contenido.perfil img{
+	border:solid 1px #d3d3d3;
+	float: left;
+	margin-right: 23px;
+}
+.perfil p{
+	font-size: 15px;
+	float: left;
+	width: 260px;
+}
+.titulo, .perfil.editar .titulo a{
+	color:#949a9e;
+	font-size: 15px;
+	margin-bottom: 6px;
+}
+.bajada{
+	color:#3e4448;
+	margin-bottom: 12px;
+}
+.perfil p.btn{
+	width: 100%;
+	margin-top:40px;
+}
+.perfil .editar{
+	width: 100%;
+	text-align: center;
+	margin-top:40px;
+}
+.perfil .editar a{
+	text-decoration: none;
+	color:#3e4448;
+}
+.perfil .editar a:hover{
+	text-decoration: underline;
+}
+#foto-vacia{
+	width:160px;
+	height: 167px;
+	border:solid 1px #d3d3d3;
+	background-color: #e7e7e7;
+	margin-right: 55px;
+	float: left;
+}
+#contenedor-contenido.perfil h3.chico{
+	width:200px;
+	color: #808080;
+	font-size: 18px;
+	width: 250px;
+	margin-bottom: 6px;
+}
+.perfil.editar .titulo{
+	width:250px;
+	font-style: italic;
+} 
+.perfil.editar .titulo a{
+	float: left
+}
+.perfil.editar .titulo a:hover{
+	text-decoration: underline;
+}
+#contenedor-contenido.perfil h3.chico.largo{
+	width: 100%;
+	margin-top:15px;
+}
+.perfil.editar form label{
+	font-size: 15px;
+	color: #5e5f5f;
+	width: 100%;
+	float: left;
+	margin-bottom: 8px;
+}
+.perfil.editar form input{
+	background-color: #e7e7e7;
+	border: none;
+	-webkit-border-radius: 3px 3px 3px 3px;
+border-radius: 3px 3px 3px 3px;
+padding:5px 8px;
+color: #808080;
+font-size: 14px;
+width:250px;
+}
+.perfil form p{
+	margin-bottom:20px;
+}
+#form-adjuntar-video #foto-img {
+    left: 30px;
+    opacity: 0;
+    position: absolute;
+}
 
 
 
