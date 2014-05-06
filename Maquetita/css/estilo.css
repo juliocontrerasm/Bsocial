@@ -585,12 +585,13 @@ border-radius: 25px;
 }
 .publicacion-texto{
 	float: left;
-	margin:0 20px 0 80px;
+	margin:0 40px 0 80px;
 }
 .publicacion-texto p{
 	font-size:15px;
 	color:#9f9f9f;
 	font-weight: 300;
+	line-height: 20px;
 }
 .contenedor-escribir-comentario{
 	width: 100%;
@@ -670,6 +671,23 @@ font-size: 11px;
 	float: left;
 	width: 100%;
 	padding-top:14px;
+}
+.ver-mas-comentarios{
+	background-color: #E2E1E1;
+    float: left;
+    width: 540px;
+    text-align: right;
+    padding: 5px 0 10px 0;
+}
+.ver-mas-comentarios a{
+	font-size: 13px;
+	float: right;
+	margin-right: 15px;
+	color:#393939;
+	font-weight: 300;
+}
+.ver-mas-comentarios a:hover{
+text-decoration: underline;
 }
 .publicacion-comentario.bg-linea{
 	background:url(img/bg-linea-comentarios.jpg) #e2e1e1 right top no-repeat;
@@ -1378,60 +1396,88 @@ width:250px;
     opacity: 0;
     position: absolute;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#contenedor-contenido.nuevo-msj h3{
+	font-size: 22px;
+	margin-bottom: 22px;
+}
+.nuevo-msj label{
+	color: #3e4448;
+	font-size: 15px;
+	font-weight: bold;
+	float: left;
+	width: 63px;
+	margin-top:10px;
+	text-align: right;
+}
+.contenedor-campos{
+	float: left;
+	width: 476px;
+	margin-bottom:13px;
+}
+.contenedor-valores{
+	background-color: #f4f4f4;
+	border:solid 1px #b3b3b3;
+	float: right;
+	width: 390px;
+}
+#contenedor-destinatarios{
+	width: 390px;
+	padding:5px 0 0 5px;
+}
+.destinatario{
+	font-size: 15px;
+	color: #9f9f9f;
+	float: left;
+	display: block;
+	background-color: #ffffff;
+	padding:5px 24px 7px 9px;
+	font-weight: lighter;
+	position: relative;
+	margin:0 5px 5px 0;
+}
+.destinatario .eliminar{
+font-size: 12px;
+position: absolute;
+right: 6px;
+top:5px;
+font-weight: bold;
+}
+.destinatario .eliminar:hover{
+	font-weight: normal;
+}
+#buscador-destinatario{
+	float: left;
+	border: none;
+	background-color: red;
+	height: 25px;
+	color: #9F9F9F;
+	font-size: 15px;
+	background-color: #F4F4F4;
+}
+#asunto-mensaje-enviar{
+	width: 387px;
+	color:#9f9f9f;
+	font-size:15px;
+	padding:4px;
+	font-weight: lighter;
+}
+.contenedor-campos .sin-margin{
+	margin:0;
+}
+.contenedor-campos textarea{
+	width: 383px;
+	height: 90px;
+	color:#9f9f9f;
+	font-size:15px;
+	padding:6px;
+	font-weight: lighter;
+	font-family: 'Open Sans', sans-serif;
+	resize:none;
+}
+.btn.enviar-msj{
+width: 100%;
+margin-top:30px;
+}
 
 
 
