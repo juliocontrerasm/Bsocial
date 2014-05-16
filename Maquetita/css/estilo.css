@@ -58,7 +58,7 @@ width: 100%;
 float: left;
 margin-bottom: 8px;
 }
-#login input, #login select{
+#login input, #login select, .perfil.editar select{
 -webkit-border-radius: 4px 4px 4px 4px;
 border-radius: 4px 4px 4px 4px;
 color:#969696;
@@ -143,7 +143,7 @@ height: 104px;
 	background-color: #2e3337;
 	height: 104px;
 }
-#logo h1, #logo h1 a, #logo-h2 h2 a, #iconos-user li a, h5, #contenedor-subir-foto a, #contenedor-subir-video a, .btn-borrar-img, .megusta a, .btn-close-video, .btn-lupita-trans, #contenedor-formulario h1, #contenedor-formulario h2{
+#logo h1, #logo h1 a, #logo-h2 h2 a, #iconos-user li a, h5, #contenedor-subir-foto a, #contenedor-subir-video a, .btn-borrar-img, .megusta a, .btn-close-video, .btn-lupita-trans, #contenedor-formulario h1, #contenedor-formulario h2, .valorar ul li a{
 	text-indent: -100000px;
 	overflow: hidden;
 	display: block;
@@ -593,6 +593,12 @@ border-radius: 25px;
 	font-weight: 300;
 	line-height: 20px;
 }
+.publicacion-texto p a{
+	color:#017CDD;
+}
+.publicacion-texto p a:hover{
+	text-decoration: underline;
+}
 .contenedor-escribir-comentario{
 	width: 100%;
 	float: left;
@@ -722,7 +728,7 @@ text-decoration: underline;
 #col-derecha .icn-azul{
 	position: relative;
 }
-#col-derecha h5{
+#col-derecha h5, .cumpleano .icn-cumpleanos-azul, .icn-mejor-azul{
 	width:42px;
 	height: 42px;
 	position: absolute;
@@ -731,6 +737,12 @@ text-decoration: underline;
 }
 .icn-aviso-azul{
 	background:url(img/icn-avisos-azul.jpg) center top no-repeat;
+}
+.icn-mercadito-azul{
+	background:url(img/icn-mercadito-azul.jpg) center top no-repeat;
+}
+.icn-mejor-azul{
+	background:url(img/icn-mejor-azul.jpg) center top no-repeat;
 }
 .contenedor-imagen, .contenedor-imagen img{
 	float: left;
@@ -1386,10 +1398,27 @@ border-radius: 3px 3px 3px 3px;
 padding:5px 8px;
 color: #808080;
 font-size: 14px;
-width:250px;
+width:287px;
 }
 .perfil form p{
 	margin-bottom:20px;
+}
+.perfil.editar p{
+	width: 100%;
+}
+.perfil.editar select{
+	margin-bottom: 0;
+	width: 302px;
+}
+.perfil.editar select#dia_nac{
+	width: 68px;
+}
+.perfil.editar select#mes_nac{
+	width: 130px;
+	margin:0 5px;
+}
+.perfil.editar select#ano_nac{
+	width: 87px;
 }
 #form-adjuntar-video #foto-img {
     left: 30px;
@@ -1478,34 +1507,221 @@ font-weight: bold;
 width: 100%;
 margin-top:30px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.contendor-publicacion.aviso{
+	padding-top:0;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+.aviso .publicacion-texto, .elmejor .publicacion-texto{
+	margin:25px 30px 0 30px;
+}
+.aviso h6{
+	color:#017cdd;
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 18px;
+}
+.aviso .contenedor-escribir-comentario p{
+	font-size: 13px;
+	color: #b6b5b5;
+	float: left;
+	background-color: #2E3337;
+	height: 30px;
+    padding-left: 33px;
+    padding-top: 20px;
+    width: 454px;
+}
+.contendor-publicacion.cumpleano{
+	position: relative;
+}
+.cumpleano h3{
+	margin-top:8px;
+	width: 410px;
+	float: left;
+}
+.cumpleano h3 span{
+	font-weight: 500;	
+}
+.cumpleano .publicacion-texto{
+	width: 100%;
+	margin:10px 0 0 0;
+} 
+.cumpleano .publicacion-texto p{
+	color:#3e4448;
+	text-align: center;
+}
+.contenedor-beneficio{
+	width: 260px;
+	float: left;
+	margin-bottom: 20px;
+}
+.contenedor-beneficio:nth-child(even){
+	margin-left: 20px;
+}
+.contenedor-beneficio img{
+	width: 258px;
+	height: 192px;
+	border:solid 1px #d3d3d3;
+	float: left;
+}	
+.contenedor-beneficio .info-preview{
+	padding:26px 0;
+	float: left;
+	width: 100%;
+	background-color: #ffffff;
+}
+.info-preview .tipo{
+	background:url(img/bg-beneficios.gif) right top no-repeat;
+	height: 57px;
+	width: 100px;
+	float: left;
+}
+.info-preview .tipo p{
+color:#017cdd;
+font-weight: bold;
+line-height: 23px;
+width: 70px;
+text-align: center;
+margin:2px 0 0 15px;
+float: left;
+}
+.info-preview .tipo.giftcard p{
+font-size: 27px;
+}
+.info-preview .tipo.oferta p{
+	font-size: 32px;
+	margin-top: 13px;
+}
+.info-preview .tipo.gratis p{
+font-size: 23px;
+margin-top: 15px;
+}
+.info-preview .tipo.descuento p{
+	font-size: 45px;
+	margin-top: 3px;
+	margin-bottom: 7px;
+	line-height: 34px;
+}
+.info-preview .tipo.descuento p.porcentaje{
+	font-size: 14px;
+	margin-top:0;
+	line-height: 14px;
+}
+.info-preview .descripcion{
+	font-size: 13px;
+	width: 114px;
+	float: left;
+	margin-left:18px;
+	line-height: 18px;
+}
+.info-preview .descripcion a{
+color: #808080;
+}
+.info-preview .descripcion a:hover{
+	text-decoration: underline;
+}
+.info-preview .descripcion span{
+	font-weight: bold;
+	color: #017cdd;
+}
+#contenedor-beneficio-interior{
+	width: 500px;
+	padding:20px;
+	background-color: #ffffff;
+	float: left;
+}
+#contenedor-beneficio-interior img{
+	border:solid 1px #d3d3d3;
+	float: left;
+	margin-right: 18px;
+}
+#contenedor-beneficio-interior h6{
+	color:#017cdd;
+	font-size: 22px;
+	line-height: 26px;
+	font-weight: bold;
+	width: 222px;
+	float: left;
+}
+#contenedor-beneficio-interior #bajada{
+	color:#9f9f9f;
+	font-size: 13px;
+	width: 222px;
+	float: left;
+	line-height: 19px;
+	font-style: italic;
+	margin-top:14px;
+}
+#contenedor-beneficio-interior #condiciones{
+	width: 100%;
+	float: left;
+	font-size: 15px;
+	color: #9f9f9f;
+}
+#contenedor-beneficio-interior #condiciones span{
+	color: #3e4448;
+	margin-bottom: 2px;
+}
+#condiciones p{
+	margin-top: 15px;
+	font-size: 14px;
+	line-height: 20px;
+}
+#condiciones p span{
+	font-weight: bold;
+	width: 100%;
+	float:left;
+}
+#contenedor-beneficio-interior .btn{
+	width: 100%;
+	margin-top: 30px;
+}
+.contendor-publicacion.elmejor{
+	position: relative;
+	margin-top:0;
+	margin-bottom: 20px;
+}
+.elmejor .publicacion-texto h6{
+	font-size: 14px;
+	font-weight: bold;
+	color: #3e4448;
+	margin-bottom: 5px;
+}
+.elmejor .publicacion-texto p{
+	font-size: 14px;
+	line-height: 23px;
+}
+.valorar{
+	height: 48px;
+	width: 100%;
+	float: left;
+	background-color: #2e3337;
+}
+.valorar p{
+	color:#9f9f9f;
+	font-size: 14px;
+	float: left;
+	margin:18px 0 0 20px;
+}
+.valorar ul{
+	margin:12px 0 0 106px;
+	float: left;
+}
+.valorar ul li{
+	float: left;
+	margin-right: 25px;
+}
+.valorar ul li:last-child{
+	margin-right: 0;
+}
+.valorar ul li a{
+	width: 25px;
+	height: 23px;
+	background:url(img/icn-estrellitas.png) center top no-repeat;
+}
+.valorar ul li a:hover{
+	background-position: center -23px;
+}
 
 
 
