@@ -564,12 +564,15 @@ border-radius: 25px;
 	float: left;
 	width: 460px;
 }
-.datos-publicacion h3{
+.datos-publicacion h3 a, .datos-publicacion h3{
 	font-size: 18px;
 	font-weight: 300;
 	color:#393939;
 	width: 100%;
 	float: left;
+}
+.datos-publicacion h3 a:hover{
+	text-decoration: underline;
 }
 .fecha-publicacion{
 	font-size: 13px;
@@ -701,7 +704,7 @@ text-decoration: underline;
 .publicacion-comentario .datos-publicacion{
 	margin-bottom:11px;
 }
-.publicacion-comentario .datos-publicacion h3{
+.publicacion-comentario .datos-publicacion h3 a, .publicacion-comentario .datos-publicacion h3{
 	font-size: 14px;
 }
 .publicacion-comentario .fecha-publicacion{
@@ -1326,6 +1329,10 @@ margin-right: 3px;
 	width: 191px;
 	height: 201px;
 }
+#contenedor-contenido.perfil.editar img{
+	width: 160px;
+	height: 167px;
+}
 .perfil p{
 	font-size: 15px;
 	float: left;
@@ -1541,8 +1548,10 @@ margin-top:30px;
 	width: 410px;
 	float: left;
 }
-.cumpleano h3 span{
-	font-weight: 500;	
+.cumpleano h3 span, .cumpleano h3 span a{
+	font-weight: 500;
+	float: none;
+	width: auto;	
 }
 .cumpleano .publicacion-texto{
 	width: 100%;
