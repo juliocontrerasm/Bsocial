@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
-<title>B-Social - Avisos</title>
+<title>B-Social - Encuestas</title>
 <link rel="stylesheet" href="css/reset.css" type="text/css" />
 <link rel="stylesheet" href="css/estilo.css" type="text/css" />
 <script type="text/javascript" src="js/jquery.tools.min.js"></script> 
@@ -131,59 +131,65 @@
 				</ul>
 			</div>
 			<div id="col-centro" class="col-contenido">
-				<div class="contenedor-publicacion aviso">
-					<div class="publicacion">
-						<div class="publicacion-imagen">
-							<img src="css/img/futbol.jpg" alt="Futbol" />
-						</div>
-						<div class="publicacion-texto">
-							<h6>Campeonato de fútbol de la empresa</h6>
-							<p>Tempor magnis eros facilisis turpis et sociis nunc dolor tincidunt, lementum sociis pulvinar augue pellentesque nec. Vut sagittis? Diam, 
-							augue augue elementum urna tristique. Scelerisque placerat ut placerat 
-							elementum risus in a parturient magna.Vut sagittis? Diam, augue augue 
-							elementum urna tristique.
-							</p>
-						</div>
-						<div class="contenedor-escribir-comentario">
-							<p>Publicado: 18/09/1810 a las 18:35 Hrs.</p>
-							<ul>
-								<li class="btn megusta">
-									<!-- La clase del span debe cambiar segun los numeros que tenga: "un-numero", "dos-numeros" o "tres-numeros" -->
-									<span class="globo-megusta dos-numeros" title="1">99</span>
-									<a title="¡Me gusta!">¡Me gusta!</a>
-								</li>
-							</ul>	
-						</div>	
-					</div>
+				<div class="contenedor-publicacion encuestas">
+					<h5 class="icn-encuestas-azul">Encuesta</h5>
+					<h6>¿Qué beneficio te gustaría para tu cumpleaños?</h6>
+					<form class="form-encuesta">
+						<p>
+							<input type="radio" id="opcion1" name="opcion" />
+							<label for="opcion1"><span></span>Bono</label>
+						</p>
+						<p>
+							<input type="radio" id="opcion2" name="opcion" />
+							<label for="opcion2"><span></span>Masaje</label>
+						</p>
+						<p>
+							<input type="radio" id="opcion3" name="opcion" />
+							<label for="opcion3"><span></span>Chelita</label>
+						</p>
+						<p>
+							<input type="radio" id="opcion4" name="opcion" />
+							<label for="opcion4"><span></span>Medio día libre</label>
+						</p>
+					</form>
+					<p class="btn">
+						<a href="#" title="Votar">Votar</a>
+					</p>
 				</div>
-				<div class="contenedor-publicacion aviso">
-					<div class="publicacion">
-						<div class="publicacion-imagen">
-							<img src="css/img/futbol.jpg" alt="Futbol" />
+				<div class="contenedor-publicacion encuestas">
+					<h5 class="icn-encuestas-azul">Encuesta</h5>
+					<h6>¿Qué beneficio te gustaría para tu cumpleaños?</h6>
+					<div class="resultado-encuesta">
+						<p>Bono</p>
+						<div class="contenedor-porcentaje">
+							<!-- Imprimir el porcentaje de votación directamete -->
+							<div class="porcentaje fucsia" style="width:50%;">
+							</div>
 						</div>
-						<div class="publicacion-texto">
-							<h6>Campeonato de fútbol de la empresa</h6>
-							<p>Tempor magnis eros facilisis turpis et sociis nunc dolor tincidunt, lementum sociis pulvinar augue pellentesque nec. Vut sagittis? Diam, 
-							augue augue <a href="#">lementum urna</a> tristique. Scelerisque placerat ut placerat 
-							elementum risus in a parturient magna.Vut sagittis? Diam, augue augue 
-							elementum urna tristique.
-							</p>
-							<p>Tempor magnis eros facilisis turpis et sociis nunc dolor tincidunt, lementum sociis pulvinar augue pellentesque nec. Vut sagittis? Diam, 
-							augue augue elementum urna tristique. Scelerisque placerat ut placerat 
-							elementum risus in a parturient magna.Vut sagittis? Diam, augue augue 
-							elementum urna tristique.
-							</p>
+					</div>
+					<div class="resultado-encuesta">
+						<p>Masaje</p>
+						<div class="contenedor-porcentaje">
+							<!-- Imprimir el porcentaje de votación directamete -->
+							<div class="porcentaje verde" style="width:10%;">
+							</div>
 						</div>
-						<div class="contenedor-escribir-comentario">
-							<p>Publicado: 18/09/1810 a las 18:35 Hrs.</p>
-							<ul>
-								<li class="btn megusta">
-									<!-- La clase del span debe cambiar segun los numeros que tenga: "un-numero", "dos-numeros" o "tres-numeros" -->
-									<span class="globo-megusta dos-numeros" title="1">99</span>
-									<a title="¡Me gusta!">¡Me gusta!</a>
-								</li>
-							</ul>	
-						</div>	
+					</div>
+					<div class="resultado-encuesta">
+						<p>Chelita</p>
+						<div class="contenedor-porcentaje">
+							<!-- Imprimir el porcentaje de votación directamete -->
+							<div class="porcentaje amarillo" style="width:20%;">
+							</div>
+						</div>
+					</div>
+					<div class="resultado-encuesta">
+						<p>Medio día libre</p>
+						<div class="contenedor-porcentaje">
+							<!-- Imprimir el porcentaje de votación directamete -->
+							<div class="porcentaje celeste" style="width:20%;">
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -211,24 +217,38 @@
 				<div class="encuesta-destacada">
 					<h5 class="icn-encuestas-azul"></h5>
 					<p>¿Que beneficios te gustaría para tu cumpleaños?</p>
-					<form class="form-encuesta">
-						<p>
-							<input type="radio" id="opcion1" name="opcion" />
-							<label for="opcion1"><span></span>Bono</label>
-						</p>
-						<p>
-							<input type="radio" id="opcion2" name="opcion" />
-							<label for="opcion2"><span></span>Masaje</label>
-						</p>
-						<p>
-							<input type="radio" id="opcion3" name="opcion" />
-							<label for="opcion3"><span></span>Chelita</label>
-						</p>
-						<p>
-							<input type="radio" id="opcion4" name="opcion" />
-							<label for="opcion4"><span></span>Medio día libre</label>
-						</p>
-					</form>
+					<div class="resultado-encuesta">
+						<p>Bono</p>
+						<div class="contenedor-porcentaje">
+							<!-- Imprimir el porcentaje de votación directamete -->
+							<div class="porcentaje fucsia" style="width:50%;">
+							</div>
+						</div>
+					</div>
+					<div class="resultado-encuesta">
+						<p>Masaje</p>
+						<div class="contenedor-porcentaje">
+							<!-- Imprimir el porcentaje de votación directamete -->
+							<div class="porcentaje verde" style="width:10%;">
+							</div>
+						</div>
+					</div>
+					<div class="resultado-encuesta">
+						<p>Chelita</p>
+						<div class="contenedor-porcentaje">
+							<!-- Imprimir el porcentaje de votación directamete -->
+							<div class="porcentaje amarillo" style="width:20%;">
+							</div>
+						</div>
+					</div>
+					<div class="resultado-encuesta">
+						<p>Medio día libre</p>
+						<div class="contenedor-porcentaje">
+							<!-- Imprimir el porcentaje de votación directamete -->
+							<div class="porcentaje celeste" style="width:20%;">
+							</div>
+						</div>
+					</div>
 					<p class="btn">
 						<a href="#" title="Votar">Votar</a>
 					</p>
