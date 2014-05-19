@@ -2384,4 +2384,10 @@ function hace($fecha_unix){
                 }
 
           }
+
+          function tamano_archivo($peso , $decimales = 2 ) {
+                $clase = array(" Bytes", " KB", " MB", " GB", " TB");
+                $peso=filesize($peso); 
+                return round($peso/pow(1024,($i = floor(log($peso, 1024)))),$decimales ).$clase[$i];
+            } 
 ?>

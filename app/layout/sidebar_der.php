@@ -10,7 +10,7 @@
 				<div class="aviso-destacado icn-azul">
 					<h5 class="icn-aviso-azul">Aviso Destacado</h5>	
 					<p class="contenedor-imagen">
-						<img src="css/img/aviso-destacado.jpg" alt="Imagen de aviso destacado" />
+						<img src="../../css/img/aviso-destacado.jpg" alt="Imagen de aviso destacado" />
 					</p>
 					<div class="parrafo">
 						<h6><a href="" title="Ver aviso">¡Fiesta de fin de año!</a></h6>

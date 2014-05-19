@@ -1,10 +1,9 @@
 	<?php 
-	if (empty($_GET['term'])) 
-		{exit ;}
+	if (empty($_GET['term'])) exit ;
 	$q = strtolower($_GET["term"]);
+	require_once('../../core/config.php');
 	$result = array();
-	session_start();
-	foreach ($_SESSION["autocompletar"] as $value) {
+	foreach ($_SESSION['autocompletar'] as $value) {
 		if (strpos(strtolower($value['value']), $q) !== false) {
 			array_push($result, array("id"=>$value['id'], "value" => strip_tags($value['value'])));
 		}
@@ -12,5 +11,4 @@
 			break;
 	}
 	echo json_encode($result);
-
 	?>

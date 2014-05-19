@@ -11,20 +11,16 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" >
-    <script src="<?php echo $url;?>js/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>   
-    <script type="text/javascript" src="<?php echo $url;?>js/bootstrap.js"></script>
+    <link rel="stylesheet" href="<?php echo $url;?>css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo $url;?>css/estilo.css" type="text/css" />
+    <script type="text/javascript" src="<?php echo $url;?>js/jquery.tools.min.js"></script> 
+    <script type="text/javascript" src="<?php echo $url;?>js/funciones.js"></script>
     <script type="text/javascript" src="<?php echo $url;?>js/jquery-validate.min.js"></script>
     <script type="text/javascript" src="<?php echo $url;?>js/validCampoFranz.js"></script>
     <script type="text/javascript" src="<?php echo $url;?>js/jquery.Rut.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>  
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic,300italic,100italic,100,500italic,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <link rel="icon" type="image/png" href="./img/favicon32.png">
-    <script type="text/javascript">
-        $('.dropdown-toggle').dropdown();
-    </script>
- </head>
-
- <body data-spy="scroll" data-target=".bs-docs-sidebar">
- 
+ </head> 
  <!-- Navbar ================================================== -->
  

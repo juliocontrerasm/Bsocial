@@ -9,9 +9,9 @@
 	}
 
 	$like = new ajaxCRUD("Total", "likes", '', "./");
-	echo $_POST['id_publicacion'];
-	echo $_POST['id_usuario'];
-	echo $_POST['id_comentario'];
+	// echo $_POST['id_publicacion'];
+	// echo $_POST['id_usuario'];
+	// echo $_POST['id_comentario'];
 if($_POST['id_comentario']==null){
 	if($_POST['id_publicacion']!=null && $_POST['id_usuario']!=null)
 	{

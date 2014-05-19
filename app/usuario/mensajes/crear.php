@@ -30,21 +30,32 @@
 	?>
 
       <div id="col-centro" class="col-contenido">
-        <div class="contendor-publicacion">
-        	
-	Menu:  <a href="../perfil" title="Editar perfil">Editar datos</a> | <a href="../estados" title="Home">Home</a> | <a href="index.php">Ver mensajes</a> | <a href="crear.php">Crear mensajes</a> | <a href="salida.php">Ver mensajes enviados</a> | <a href="cerrar.php">Cerrar sesion</a><br /><br />
-	<form method="post" action="" >
-	<br /><br />
-	Para:<br />
-	<input type="text" name="para" id="para"/><br />
-	Asunto:<br />
-	<input type="text" name="asunto" /><br />
-	Mensaje:<br />
-	<textarea name="texto"></textarea>
-	<br /><br />
-	<input id="id_nombre" name="id_nombre" hidden>
-	<input type="submit" name="enviar" value="Enviar" />
-	</form>
+        	<div id="contenedor-contenido" class="nuevo-msj">
+        		<form method="post" action="" id="nuevo-mensaje"> 
+					<h3>Redactar nuevo mensaje</h3>
+						<div class="contenedor-campos">
+							<label for="buscador-destinatario">Para:</label>
+							<div id="contenedor-destinatarios" class="contenedor-valores">
+								<!-- <span class="destinatario">Felipe Morales <a class="eliminar">x</a></span>
+								<span class="destinatario">Felix Saucedo <a class="eliminar">x</a></span>
+								<span class="destinatario">Josefina Vargas <a class="eliminar">x</a></span> -->
+								<input type="text" id="buscador-destinatario"/> 
+							</div>
+						</div>
+						<div class="contenedor-campos">
+							<label for="asunto-mensaje" class="sin-margin">Asunto:</label>
+							<input type="text" id="asunto-mensaje-enviar" class="contenedor-valores" name="asunto"/>
+						</div>
+						<div class="contenedor-campos">
+							<label for="asunto-mensaje" class="sin-margin">Mensaje:</label>
+							<textarea class="contenedor-valores" name="texto"></textarea>
+						</div>
+						<input id="id_nombre" name="id_nombre" hidden>
+						<p class="btn enviar-msj">
+ 							<a href="#" title="Enviar" id="enviar-mensaje">Enviar</a>
+ 						</p>
+ 				</form>
+
 	<style>
 	.ui-autocomplete-loading {
 		background: white url('ui-anim_basic_16x16.gif') right center no-repeat;
@@ -56,13 +67,9 @@
 		function log( message ) {
 			document.getElementById("id_nombre").value =parseInt(message);
 		}
-		$( "#para" ).autocomplete({
+		$( "#buscador-destinatario" ).autocomplete({
 			source: "search.php",
 			autoFocus: true,
-			selectFirst: true,
-			onlySelect: true,
-			autoSelect: true,
-			delay:100,
 			select: function( event, ui ) {
 				log( ui.item.id );
 			},
@@ -71,6 +78,10 @@
 			},
 		});
 	});
+
+	$("#enviar-mensaje").click(function(){
+		$("#nuevo-mensaje").submit();
+	 });
 	</script>
 
         </div>

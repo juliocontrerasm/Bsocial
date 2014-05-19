@@ -27,10 +27,10 @@
 			$mensaje->getQuery("INSERT INTO mensajes (id_mensaje,para,de,fecha,asunto,texto,created) VALUES (".$id.",'".$mensajes[0]['para']."','".$_SESSION['id_usuario']."','".$fecha."','".$mensajes[0]['asunto']."','".$_POST['respuesta']."',CURRENT_TIMESTAMP)");				
 		}
 	}
-	$respuestas = $mensaje->getQuery("SELECT * FROM mensajes WHERE id_mensaje = '".$id."' ORDER BY created DESC");
+	$respuestas = $mensaje->getQuery("SELECT * FROM mensajes WHERE id_mensaje = '".$id."' ORDER BY created ASC");
+	$last = end($respuestas);
+	// pr($last);
 ?>
-
-
       <div id="col-centro" class="col-contenido">
         <div id="contenedor-contenido" class="contenedor-mensajes">
         	<div id="menu-mensajes">
@@ -51,10 +51,44 @@
 								  {
 								  	if($coma!=0){echo ', ';};
 								  	echo ucwords($value[0]['nombre']);
-								  	 $coma=1;
+								  	$coma=1;
 								  }?></p>
 			</div>
 
+			<div class="mensaje-abierto <?php if($mensajes[0]['de']==$_SESSION['id_usuario']){ echo 'blanco';}?>">
+				<div class="foto-perfil">
+					<?php $url_imagen = '../../usuario/perfil/img/'.$_SESSION['empresa'].'/'.$mensajes[0]['de'].'.jpg';
+						if( file_exists($url_imagen) ){ ?>
+						<p><img src="<?php echo $url_imagen;?>" alt="Imagen perfil" /></p>
+						<?php } else { ?>
+						<p><img src="<?php echo $url;?>/css/img/avatar.jpg" alt="Imagen perfil" /></p>
+						<?php } ?>
+				</div>
+				<div class="texto-mensaje">
+					<h6><?php echo ucwords($nombre[0][0]['nombre']);?></h6>
+					<p><?php echo $mensajes[0]['texto'];?></p>
+					<p class="fecha"><?php echo date(' d / m / Y ', strtotime($mensajes[0]['created'])).' a las '.date('H:i', strtotime($mensajes[0]['created'])).' Hrs.'; ?></p>
+				</div>
+				<?php if($respuestas ==null) {?>
+						<div class="contenedor-escribir-comentario">
+							<div class="escribir-comentario responder-mensaje">
+								<form id="responder-mensaje" class="form-comentar-publicacion responder-mensaje" action="" method="post">
+									<textarea placeholder="Responder mensaje..." name="respuesta"></textarea>
+								</form>
+							</div>
+							<ul>
+								<li class="btn comentar"><a title="Enviar" id="enviar-respuesta">Enviar</a></li>
+							</ul>	
+						</div>
+						<script type="text/javascript">
+							$("#enviar-respuesta").click(function(){
+								$("#responder-mensaje").submit();
+							});
+						</script>
+
+				<?php } ?>
+
+			</div>
 			<?php 
 				foreach ($respuestas as $res){ 
 					$nombre2 = $usuario->getQuery("SELECT nombre From usuarios WHERE id=".$res['de']);
@@ -72,26 +106,32 @@
 				<div class="texto-mensaje">
 					<h6><?php echo ucwords($nombre2[0]['nombre']);?></h6>
 					<p><?php echo $res['texto'];?></p>
-					<p class="fecha"><?php echo date(' d / m / Y ', $res['created']).' a las '.date('H:i', $res['created']).' Hrs.'; ?></p>
+					<p class="fecha"><?php echo date(' d / m / Y ', strtotime($res['created'])).' a las '.date('H:i', strtotime($res['created'])).' Hrs.'; ?></p>
 				</div>
+				<?php if($last['id'] == $res['id']) {?>
+						<div class="contenedor-escribir-comentario">
+							<div class="escribir-comentario responder-mensaje">
+								<form id="responder-mensaje" class="form-comentar-publicacion responder-mensaje" action="" method="post">
+									<textarea placeholder="Responder mensaje..." name="respuesta"></textarea>
+								</form>
+							</div>
+							<ul>
+								<li class="btn comentar"><a title="Enviar" id="enviar-respuesta">Enviar</a></li>
+							</ul>	
+						</div>
+						<script type="text/javascript">
+							$("#enviar-respuesta").click(function(){
+								$("#responder-mensaje").submit();
+							});
+						</script>
+
+				<?php } ?>
+
+
 			</div>
 			<?php } ?>
 
-			<div class="mensaje-abierto <?php if($mensajes[0]['de']==$_SESSION['id_usuario']){ echo 'blanco';}?>">
-				<div class="foto-perfil">
-					<?php $url_imagen = '../../usuario/perfil/img/'.$_SESSION['empresa'].'/'.$mensajes[0]['de'].'.jpg';
-						if( file_exists($url_imagen) ){ ?>
-						<p><img src="<?php echo $url_imagen;?>" alt="Imagen perfil" /></p>
-						<?php } else { ?>
-						<p><img src="<?php echo $url;?>/css/img/avatar.jpg" alt="Imagen perfil" /></p>
-						<?php } ?>
-				</div>
-				<div class="texto-mensaje">
-					<h6><?php echo ucwords($nombre[0][0]['nombre']);?></h6>
-					<p><?php echo $mensajes[0]['texto'];?></p>
-					<p class="fecha"><?php echo date(' d / m / Y ', $mensajes[0]['created']).' a las '.date('H:i', $mensajes[0]['created']).' Hrs.'; ?></p>
-				</div>
-			</div>
+			
 			</div>
 		</div>
 			<?php 
