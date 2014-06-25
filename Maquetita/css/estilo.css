@@ -917,7 +917,7 @@ cursor: pointer;
 opacity: 1;
 }
 #btn-visiblepor li a.veintecar{
-	padding-right: 101px;
+padding-right: 101px;
 }
 #dropdown-visiblepor{
 position: absolute;
@@ -1783,48 +1783,78 @@ background-color:#ffcc41;
 background-color:#49c5e0;
 }
 .contenedor-publicacion.encuestas{
-	padding-bottom: 20px;
+padding-bottom: 20px;
 }
 .contenedor-publicacion.encuestas h6{
-	color:#2e3337;
-	font-size: 20px;
-	font-weight: normal;
-	width: 440px;
-	float: left;
-	margin:13px 0 0 49px;
-	line-height: 28px;
+color:#2e3337;
+font-size: 20px;
+font-weight: normal;
+width: 440px;
+float: left;
+margin:13px 0 0 49px;
+line-height: 28px;
 }
 .contenedor-publicacion.encuestas form{
-	float: left;
-	width: 100%;
-	margin-bottom: 60px;
+float: left;
+width: 100%;
+margin-bottom: 60px;
 }
 .contenedor-publicacion.encuestas form p{
-	font-size: 15px;
-	color: #8C8C8C;
-	margin-top: 35px;
-	width: 490px;
-	margin-left: 50px;
+font-size: 15px;
+color: #8C8C8C;
+margin-top: 35px;
+width: 490px;
+margin-left: 50px;
 }
 .contenedor-publicacion.encuestas .form-encuesta p input[type="radio"] + label span{
-	margin-right: 16px;
+margin-right: 16px;
 }
 .contenedor-publicacion.encuestas .btn{
-	width: 100%;
+width: 100%;
 }
 .contenedor-publicacion.encuestas .resultado-encuesta{
-	float: left;
-	margin-left:50px;
+float: left;
+margin-left:50px;
 }
 .contenedor-publicacion.encuestas .resultado-encuesta p{
-	color:#8C8C8C;
-	float: left;
-	margin-bottom: 10px;
-	width: 450px;
+color:#8C8C8C;
+float: left;
+margin-bottom: 10px;
+width: 450px;
 }
-
-
-
+#contenedor-pagina-estatica{
+width: 540px;
+background-color: #ffffff;
+float: left;
+}
+#contenedor-pagina-estatica img{
+float: left;
+width: 540px;
+height: 283px;
+margin-bottom: 20px;
+}
+#parrafos-estaticos{
+width: 500px;
+float: left;
+margin: 0 20px;
+padding-bottom: 20px;
+}
+#contenedor-pagina-estatica h6{
+color:#017cdd;
+font-size: 22px;
+line-height: 26px;
+font-weight: bold;
+width: 100%;
+float: left;
+margin-top:20px;
+}
+#contenedor-pagina-estatica p{
+color:#9f9f9f;
+font-size: 15px;
+width: 100%;
+float: left;
+margin-top: 15px;		
+}
 
 
 
